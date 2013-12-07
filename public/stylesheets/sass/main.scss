@@ -1,0 +1,103 @@
+body {
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  font-family: 'Orbitron', Arial, sans-serif;
+}
+
+h1 {
+  font-family: 'Orbitron', Arial, sans-serif;
+}
+
+ul {
+  padding: 0;
+}
+
+#controls {
+  display: inline-block;
+}
+
+#readout {
+  display: inline-block;
+  background: #222;
+  margin: 10px 5px;
+  padding: 10px;
+  border: 1px solid #444;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  font-size: 18px;
+  line-height: 18px;
+  color: #2cf;
+  span {
+    display: inline-block;
+    margin-right: 15px;
+  }
+
+  #counter {
+    width: 80px;
+  }
+}
+
+#drum-grid {
+  width: 90%;
+  list-style: none;
+  ul.instrument {
+    background: #444;
+    height: 60px;
+    margin-bottom: 5px;
+    padding: 10px 0;
+    border: 1px solid #222;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+  }
+  ul li { 
+    display: inline-block; 
+    margin-right: 15px;
+    width: 50px;
+    text-align: center;
+    button {
+      width: 50px;
+      height: 35px;
+      padding: 0;
+      border: 1px solid #333;
+      -webkit-border-radius: 6px;
+      -moz-border-radius: 6px;
+      border-radius: 6px;
+      background: #666;
+      -webkit-box-shadow: inset -1px -2px 5px 0px rgba(50, 50, 50, 1);
+      box-shadow: inset -1px -2px 5px 0px rgba(50, 50, 50, 1);
+      div {
+        width: 30px;
+        height: 4px;
+        margin: 15px 9px 0;
+        background: #222;
+        border: 1px solid #555;
+      }
+    }
+    button.btn-on {
+      background: #555;
+      -webkit-box-shadow: inset 1px -3px 5px 0px rgba(50, 50, 50, 1);
+      box-shadow: inset 1px -3px 5px 0px rgba(50, 50, 50, 1);
+      div {
+        background: #2cf;
+        border-bottom: 1px solid #3df;
+        border-right: 1px solid #3df;
+      }
+    }
+  }
+  ul li.instrument-name { 
+    width: 110px;
+    font-size: 16px;
+    line-height: 90%;
+    text-align: right;
+    span {
+      font-size: 12px;
+      color: #ccc;
+    }
+  }
+  ul li.beat-name {
+    font-size: 10px;
+  }
+}
