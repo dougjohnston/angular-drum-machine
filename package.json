@@ -1,0 +1,25 @@
+{
+  "name": "Angular-Drum-Machine",
+  "version": "0.0.1",
+  "description": "Angular Drum Machine",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dougjohnston/angular-drum-machine.git"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-sass": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-contrib-connect": "~0.5.0"
+  },
+  "author": "Doug Johnston",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/dougjohnston/angular-drum-machine/issues"
+  },
+  "homepage": "https://github.com/dougjohnston/angular-drum-machine"
+}
