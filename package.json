@@ -11,10 +11,10 @@
     "url": "https://github.com/dougjohnston/angular-drum-machine.git"
   },
   "devDependencies": {
-    "grunt": "~0.4.2",
-    "grunt-contrib-sass": "*",
-    "grunt-contrib-watch": "*",
-    "grunt-contrib-connect": "~0.5.0"
+    "grunt": "latest",
+    "grunt-contrib-sass": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-contrib-connect": "latest"
   },
   "author": "Doug Johnston",
   "license": "BSD-2-Clause",

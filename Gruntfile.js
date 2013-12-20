@@ -28,20 +28,23 @@ module.exports = function(grunt) {
     },
 
     sass: {
-        dist: {
-            files: {
-                '<%= meta.deployPath %>main.css': '<%= meta.srcPath %>main.scss'
-            }
+      dist: {
+        options: {
+          sourcemap: true
+        },
+        files: {
+            '<%= meta.deployPath %>main.css': '<%= meta.srcPath %>main.scss'
         }
+      }
     },
 
     watch: {
-        scripts: {
-            files: [
-                '<%= meta.srcPath %>/**/*.scss'
-            ],
-            tasks: ['sass']
-        }
+      scripts: {
+        files: [
+            '<%= meta.srcPath %>/**/*.scss'
+        ],
+        tasks: ['sass']
+      }
     }
 
   });

@@ -2,57 +2,61 @@
 <html lang="en-us" ng-app="DrumMachine">
 <head>
   <meta charset="utf-8" />
-  <title>The Rhythmic Composer Drum Machine</title>
+  <title>Angular Drum Machine - An AngularJS Demo App</title>
 
-  <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Orbitron:400'>
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|Oleo+Script+Swash+Caps' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/main.css">
 </head>
 <body ng-controller="DrumController">
-  <h1>Rhythmic Composer</h1>
+  <div id="container">
+    <header>
+      <h1>Angular Drum Machine</h1>
+    </header>
 
-  <div id="controls">
-    <button id="play" class="btn btn-success" ng-click="playLoop()">Play</button>
-    <button id="stop" class="btn btn-danger" ng-click="stopLoop()">Stop</button>
+    <div id="controls">
+      <button id="play" class="btn btn-success" ng-click="playLoop()">Play</button>
+      <button id="stop" class="btn btn-danger" ng-click="stopLoop()">Stop</button>
+    </div>
+    <div id="readout">
+      <span id="time-signature">{{machine.timeSignature}}/4</span>
+      <span id="tempo">{{machine.tempo}} bpm</span>
+      <span id="kit">Kit: Standard</span>
+      <span id="counter">{{machine.currentMeasure}} : {{machine.currentBeat}}</span>
+      <!--<input ng-model="machine.tempo" />-->
+      <!--<input ng-model="machine.beatsPerMeasure" />-->
+    </div>
+
+    <ul id="drum-grid">
+      <li>
+        <ul>
+          <li class='instrument-name'></li>
+          <li class='beat-name' data-ng-repeat="i in machine.beats[0]">
+            {{$index + 1}}
+          </li>
+        </ul>
+      </li>
+      <li ng-repeat="instrument in instruments">
+        <ul class="instrument">
+          <li class='instrument-name'>
+            {{instrument.name}}<br>
+            <span>{{instrument.description}}</span>
+          </li>
+          <li data-ng-repeat="i in machine.beats[0]">
+            <button class="btn" ng-class="{'btn-on':isOn(instrument, $index)}" 
+              ng-click="toggleBeat(instrument, $index)">
+              <div></div>
+            </button>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <footer>
+      Developed by <a href="http://www.dojosto.com">Doug Johnston</a> using <a href="http://angularjs.org/">AngularJS</a>.<br>Drum loops provided by
+      <a href="http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/65">Music Radar</a>.
+    </footer>
   </div>
-  <div id="readout">
-    <span id="time-signature">{{machine.timeSignature}}/4</span>
-    <span id="tempo">{{machine.tempo}} bpm</span>
-    <span id="kit">Kit: Standard</span>
-    <span id="counter">{{machine.currentMeasure}} : {{machine.currentBeat}}</span>
-    <!--<input ng-model="machine.tempo" />-->
-    <!--<input ng-model="machine.beatsPerMeasure" />-->
-  </div>
-
-  <ul id="drum-grid">
-    <li>
-      <ul>
-        <li class='instrument-name'></li>
-        <li class='beat-name' data-ng-repeat="i in machine.beats[0]">
-          {{$index + 1}}
-        </li>
-      </ul>
-    </li>
-    <li ng-repeat="instrument in instruments">
-      <ul class="instrument">
-        <li class='instrument-name'>
-          {{instrument.name}}<br>
-          <span>{{instrument.description}}</span>
-        </li>
-        <li data-ng-repeat="i in machine.beats[0]">
-          <button class="btn" ng-class="{'btn-on':isOn(instrument, $index)}" 
-            ng-click="toggleBeat(instrument, $index)">
-            <div></div>
-          </button>
-        </li>
-      </ul>
-    </li>
-  </ul>
-
-  <footer>
-    Drum loops provided by
-    <a href="http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/65">Music Radar</a>.
-  </footer>
 
   <script src="/bower_components/angular/angular.min.js"></script>
   <script src="/bower_components/howler/howler.min.js"></script>

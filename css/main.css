@@ -1,14 +1,24 @@
 body {
   padding: 10px;
-  background-color: #333;
-  color: #fff;
-  font-family: 'Orbitron', Arial, sans-serif; }
+  background-color: #373737;
+  color: #EFEAE4;
+  font-family: 'Ubuntu Mono', Arial, sans-serif; }
 
 h1 {
-  font-family: 'Orbitron', Arial, sans-serif; }
+  padding: 0 3px;
+  color: #EFEAE4;
+  font-family: 'Oleo Script Swash Caps', cursive;
+  font-size: 53px; }
+
+a {
+  color: #2BB2DD; }
 
 ul {
   padding: 0; }
+
+#container {
+  width: 800px;
+  margin: 0 auto; }
 
 #controls {
   display: inline-block; }
@@ -24,7 +34,7 @@ ul {
   border-radius: 6px;
   font-size: 18px;
   line-height: 18px;
-  color: #2cf; }
+  color: #2BB2DD; }
   #readout span {
     display: inline-block;
     margin-right: 15px; }
@@ -35,7 +45,7 @@ ul {
   width: 90%;
   list-style: none; }
   #drum-grid ul.instrument {
-    background: #444;
+    background: #575757;
     height: 60px;
     margin-bottom: 5px;
     padding: 10px 0;
@@ -56,7 +66,7 @@ ul {
       -webkit-border-radius: 6px;
       -moz-border-radius: 6px;
       border-radius: 6px;
-      background: #666;
+      background: #EFEAE4;
       -webkit-box-shadow: inset -1px -2px 5px 0px #323232;
       box-shadow: inset -1px -2px 5px 0px #323232; }
       #drum-grid ul li button div {
@@ -82,4 +92,6 @@ ul {
       font-size: 12px;
       color: #ccc; }
   #drum-grid ul li.beat-name {
-    font-size: 10px; }
+    font-size: 12px; }
+
+/*# sourceMappingURL=main.css.map */
