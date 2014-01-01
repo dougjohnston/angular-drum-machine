@@ -15,7 +15,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.0.8",
+    "angular": "~1.2.6",
     "bootstrap": "~3.0.3",
     "howler": "~1.1.15"
   }

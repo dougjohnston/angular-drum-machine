@@ -41,7 +41,7 @@
       <li>
         <ul>
           <li class='instrument-name'></li>
-          <li class='beat-name' data-ng-repeat="i in machine.beats[0]">
+          <li class='beat-name' data-ng-repeat="i in machine.beats[0] track by $index">
             {{$index + 1}}
           </li>
         </ul>
@@ -52,7 +52,7 @@
             {{instrument.name}}<br>
             <span>{{instrument.description}}</span>
           </li>
-          <li data-ng-repeat="i in machine.beats[0]">
+          <li data-ng-repeat="i in machine.beats[0] track by $index">
             <button class="btn" ng-class="{'btn-on':isOn(instrument, $index)}" 
               ng-click="toggleBeat(instrument, $index)">
               <div></div>
