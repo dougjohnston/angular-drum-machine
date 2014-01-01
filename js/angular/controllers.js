@@ -52,7 +52,6 @@ app.controller('DrumController', function($scope, $timeout, machineModel) {
   $scope.stopLoop = function() {
     $scope.machine.currentMeasure = 0;
     $scope.machinecurrentBeat = 0;
-    $scope.machine.resetBeats();
     for (var i = 0; i < $scope.timers.length; i++) {
       $timeout.cancel($scope.timers[i]);
     }
