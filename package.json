@@ -11,6 +11,7 @@
     "url": "https://github.com/dougjohnston/angular-drum-machine.git"
   },
   "devDependencies": {
+    "karma": "latest",
     "grunt": "latest",
     "grunt-contrib-sass": "latest",
     "grunt-contrib-watch": "latest",

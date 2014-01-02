@@ -51,9 +51,10 @@ app.controller('DrumController', function($scope, $timeout, machineModel) {
   // Stop all scheduled timers, bringing everything to a halt
   $scope.stopLoop = function() {
     $scope.machine.currentMeasure = 0;
-    $scope.machinecurrentBeat = 0;
+    $scope.machine.currentBeat = 0;
     for (var i = 0; i < $scope.timers.length; i++) {
       $timeout.cancel($scope.timers[i]);
     }
+    $scope.timers = [];
   };
 });
