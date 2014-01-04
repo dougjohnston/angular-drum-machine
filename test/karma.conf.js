@@ -18,7 +18,7 @@ module.exports = function(config) {
       '../bower_components/angular-mocks/angular-mocks.js',
       '../bower_components/howler/howler.min.js',
       '../js/**/*.js',
-      'unit/*.js'
+      'unit/**/*.js'
     ],
 
 
