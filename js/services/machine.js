@@ -15,6 +15,11 @@ app.service('machineModel', function(kitModel) {
     return new Array(this.beatsPerMeasure);
   }
 
+  this.reset = function() {
+    this.currentMeasure = 0;
+    this.currentBeat = 0;
+  };
+
   // Initialize beats array
   var beatsArray = [];
   this.resetBeats = function() {
