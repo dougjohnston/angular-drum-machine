@@ -27,6 +27,14 @@ module.exports = function(grunt) {
       }
     },
 
+    karma: {
+      unit: {
+        configFile: 'test/karma.conf.js',
+        autoWatch: false,
+        background: true
+      }
+    },
+
     sass: {
       dist: {
         options: {
@@ -40,10 +48,13 @@ module.exports = function(grunt) {
 
     watch: {
       scripts: {
-        files: [
-            '<%= meta.srcPath %>/**/*.scss'
-        ],
+        files: ['<%= meta.srcPath %>/**/*.scss'],
         tasks: ['sass']
+      },
+
+      karma: {
+        files: ['js/**/*.js', 'test/**/*.js'],
+        tasks: ['karma:unit:run']
       }
     }
 
@@ -53,6 +64,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-karma');
 
   // Default task.
   grunt.registerTask('default', ['sass']);

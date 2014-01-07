@@ -25,7 +25,8 @@
     "requirejs": "~2.1.9",
     "karma-requirejs": "~0.2.1",
     "karma-phantomjs-launcher": "~0.1.1",
-    "karma-spec-reporter": "0.0.6"
+    "karma-spec-reporter": "0.0.6",
+    "grunt-karma": "~0.6.2"
   },
   "author": "Doug Johnston",
   "license": "BSD-2-Clause",
