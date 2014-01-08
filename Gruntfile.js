@@ -21,8 +21,8 @@ module.exports = function(grunt) {
       server: {
         options: {
           port: 8080,
-          base: './',
-          keepalive: true
+          base: '.',
+          livereload: true
         }
       }
     },
@@ -47,7 +47,7 @@ module.exports = function(grunt) {
     },
 
     watch: {
-      scripts: {
+      sasstocss: {
         files: ['<%= meta.srcPath %>/**/*.scss'],
         tasks: ['sass']
       },
@@ -67,5 +67,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-karma');
 
   // Default task.
-  grunt.registerTask('default', ['sass']);
+  grunt.registerTask('default', ['sass', 'karma:unit:start', 'connect', 'watch']);
 };
