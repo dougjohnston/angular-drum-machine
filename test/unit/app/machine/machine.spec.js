@@ -23,16 +23,16 @@ describe('DrumController', function() {
     expect(scope.timers.length).toBe(0);
   });
 
-  describe('method stopLoop', function() {
+  describe('method resetLoop', function() {
     it('should reset the current measure', function() {
       scope.machine.currentMeasure = 50;
-      scope.stopLoop();
+      scope.resetLoop();
       expect(scope.machine.currentMeasure).toEqual(0);
     });
 
     it('should reset the current beat', function() {
       scope.machine.currentBeat = 8;
-      scope.stopLoop();
+      scope.resetLoop();
       expect(scope.machine.currentBeat).toEqual(0);
     });
 
@@ -46,13 +46,13 @@ describe('DrumController', function() {
       scope.timers.push(timeout(function() { }, 50));
       scope.timers.push(timeout(function() { }, 100));
 
-      scope.stopLoop();
+      scope.resetLoop();
       expect(function() { timeout.flush() }).toThrowError;
     });
 
     it('should clear the timers array', function() {
       scope.timers = [1,2,3];
-      scope.stopLoop();
+      scope.resetLoop();
       expect(scope.timers.length).toEqual(0);
     });
   });

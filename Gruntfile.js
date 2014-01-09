@@ -8,8 +8,8 @@ module.exports = function(grunt) {
     // Metadata.
     meta: {
         basePath: './',
-        srcPath: './css/sass/',
-        deployPath: './css/'
+        srcPath: './public/sass/',
+        deployPath: './public/assets/css/'
     },
 
     banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
@@ -21,8 +21,7 @@ module.exports = function(grunt) {
       server: {
         options: {
           port: 8080,
-          base: '.',
-          livereload: true
+          base: './public'
         }
       }
     },
@@ -53,7 +52,7 @@ module.exports = function(grunt) {
       },
 
       karma: {
-        files: ['js/**/*.js', 'test/**/*.js'],
+        files: ['public/app/**/*.js', 'test/**/*.js'],
         tasks: ['karma:unit:run']
       }
     }
