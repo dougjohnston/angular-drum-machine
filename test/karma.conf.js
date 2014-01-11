@@ -14,11 +14,11 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      '../bower_components/angular/angular.min.js',
-      '../bower_components/angular-mocks/angular-mocks.js',
-      '../bower_components/howler/howler.min.js',
-      '../js/**/*.js',
-      'unit/**/*.js'
+      '../public/assets/bower_components/angular/angular.min.js',
+      '../public/assets/bower_components/angular-mocks/angular-mocks.js',
+      '../public/assets/bower_components/howler/howler.min.js',
+      '../public/app/**/*.js',
+      './unit/**/*.spec.js'
     ],
 
 

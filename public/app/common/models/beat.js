@@ -1,15 +1,26 @@
 'use strict';
 
-var Beat = function() {
-  var self = this;
+//var Beat = {
+  //active: false,
 
-  self.active = false;
+  //toggle: function() {
+    //Beat.active = (Beat.active ? false : true);
+  //},
 
-  self.toggle = function() {
-    self.active = (self.active ? false : true);
-  }
+  //deactivate: function() {
+    //Beat.active = false;
+  //}
+//};
 
-  self.deactivate = function() {
-    self.active = false
-  }
+function Beat() {
+  this.active = false;
+}
+
+Beat.prototype.toggle = function() {
+  this.active = (this.active ? false : true);
 };
+
+Beat.prototype.deactivate = function() {
+  this.active = false;
+};
+

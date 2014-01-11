@@ -1,15 +1,15 @@
-'use strict';
+//'use strict';
 
-describe('machineModel', function() {
-  var machine;
+//describe('machineModel', function() {
+  //var machine;
 
-  beforeEach(module('DrumMachine'));
+  //beforeEach(module('DrumMachine'));
 
-  beforeEach(inject(function(_machineModel_) {
-    machine = _machineModel_;
-  }));
+  //beforeEach(inject(function(_machineModel_) {
+    //machine = _machineModel_;
+  //}));
 
-  it('should set up a default kit', function() {
-    expect(machine.kit).toEqual(jasmine.any(Object));
-  });
-});
+  //it('should set up a default kit', function() {
+    //expect(machine.kit).toEqual(jasmine.any(Object));
+  //});
+//});
