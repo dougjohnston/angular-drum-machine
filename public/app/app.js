@@ -1,3 +1,3 @@
 'use strict';
 
-var app = angular.module('DrumMachine', []);
+var app = angular.module('AngularDrumMachine', []);

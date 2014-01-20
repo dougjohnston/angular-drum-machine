@@ -1,11 +1,11 @@
-// Drum Controller
+'use strict';
 
-app.controller('DrumController', function($scope, machine) {
-  'use strict';
-  
+// Drum Controller
+app.controller('DrumMachineCtrl', function($scope, drumMachine) {
+
   // Set up the machine service
-  $scope.machine = machine;
-  $scope.machine.build();
+  drumMachine.build();
+  $scope.machine = drumMachine;
 
   // Start playback
   $scope.playLoop = function() {

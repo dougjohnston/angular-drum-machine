@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us" ng-app="DrumMachine">
+<html lang="en-us" ng-app="AngularDrumMachine">
 <head>
   <meta charset="utf-8" />
   <title>Angular Drum Machine - An AngularJS Demo App</title>
@@ -18,7 +18,7 @@
     ga('send', 'pageview');
   </script>
 </head>
-<body ng-controller="DrumController">
+<body ng-controller="DrumMachineCtrl">
   <a href="https://github.com/dougjohnston/angular-drum-machine"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
   <div id="container">
     <header>
@@ -34,8 +34,6 @@
       <span id="time-signature">{{machine.timeSignature}}/4</span>
       <span id="tempo">{{machine.tempo}} bpm</span>
       <span id="kit">Kit: Default</span>
-      <!--<input ng-model="machine.tempo" />-->
-      <!--<input ng-model="machine.beatsPerMeasure" />-->
     </div>
 
     <ul id="drum-grid">
@@ -72,11 +70,11 @@
   <script src="/assets/bower_components/howler/howler.min.js"></script>
   <script src="/app/app.js"></script>
   <script src="/app/controllers/main.js"></script>
-  <script src="/app/common/filters/main.js"></script>
-  <script src="/app/common/services/machine.js"></script>
-  <script src="/app/common/services/timerqueue.js"></script>
-  <script src="/app/common/models/row.js"></script>
-  <script src="/app/common/models/instrument.js"></script>
-  <script src="/app/common/models/beat.js"></script>
+  <script src="/app/filters/main.js"></script>
+  <script src="/app/services/drum_machine.js"></script>
+  <script src="/app/services/timer_queue.js"></script>
+  <script src="/app/services/models/row.js"></script>
+  <script src="/app/services/models/instrument.js"></script>
+  <script src="/app/services/models/beat.js"></script>
 </body>
 </html>
