@@ -13,8 +13,9 @@ h1 {
 a {
   color: #2BB2DD; }
 
-ul {
-  padding: 0; }
+ul, ul li ul {
+  padding: 0;
+  margin-left: 0; }
 
 #container {
   width: 800px;
@@ -22,6 +23,10 @@ ul {
 
 #controls {
   display: inline-block; }
+  #controls button {
+    padding: 0.8rem;
+    font-family: 'Ubuntu Mono', Arial, sans-serif;
+    font-size: 1rem; }
 
 #readout {
   display: inline-block;
