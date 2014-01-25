@@ -10,19 +10,19 @@ describe('Instrument', function() {
     instrument = new Instrument(inst);
   });
 
-  it('should be defined', function() {
-    expect(instrument).toBeDefined();
-  });
+  //it('should be defined', function() {
+    //expect(instrument).toBeDefined();
+  //});
 
-  it('should create a new Howl object', function() {
-    var params = { urls: ["assets/audio/test.mp3"] };
-    expect(window.Howl).toHaveBeenCalledWith(params);
-    expect(instrument.sound).toBeDefined();
-  });
+  //it('should create a new Howl object', function() {
+    //var params = { urls: ["assets/audio/test.mp3"] };
+    //expect(window.Howl).toHaveBeenCalledWith(params);
+    //expect(instrument.sound).toBeDefined();
+  //});
 
-  it('should set the name', function() {
-    expect(instrument.name).toEqual('Fat Kick');
-  });
+  //it('should set the name', function() {
+    //expect(instrument.name).toEqual('Fat Kick');
+  //});
 
   //describe('play function', function() {
     //it('should play the sound', function() {

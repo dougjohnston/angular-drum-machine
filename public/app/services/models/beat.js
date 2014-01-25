@@ -1,26 +1,29 @@
 'use strict';
 
-//var Beat = {
-  //active: false,
+var Beat = function() {
+  var active = false;
 
-  //toggle: function() {
-    //Beat.active = (Beat.active ? false : true);
-  //},
+  function isActive() {
+    return active;
+  }
 
-  //deactivate: function() {
-    //Beat.active = false;
-  //}
-//};
+  function activate() {
+    active = true;
+  }
 
-function Beat() {
-  this.active = false;
-}
+  function deactivate() {
+    active = false;
+  }
 
-Beat.prototype.toggle = function() {
-  this.active = (this.active ? false : true);
+  function toggle() {
+    active = (active ? false : true);
+  }
+
+  // Return public functions
+  return {
+    isActive: isActive,
+    activate: activate,
+    deactivate: deactivate,
+    toggle: toggle
+  }
 };
-
-Beat.prototype.deactivate = function() {
-  this.active = false;
-};
-

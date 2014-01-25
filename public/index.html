@@ -5,7 +5,8 @@
   <title>Angular Drum Machine - An AngularJS Demo App</title>
 
   <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|Oleo+Script+Swash+Caps' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="/assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/bower_components/foundation/css/normalize.css">
+  <link rel="stylesheet" href="/assets/bower_components/foundation/css/foundation.min.css">
   <link rel="stylesheet" href="/assets/css/main.css">
 
   <script>
@@ -20,50 +21,52 @@
 </head>
 <body ng-controller="DrumMachineCtrl">
   <a href="https://github.com/dougjohnston/angular-drum-machine"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
-  <div id="container">
-    <header>
-      <h1>Angular Drum Machine</h1>
-    </header>
+  <div id="container" class="row">
+    <div class="large-12 large-centered columns">
+      <header>
+        <h1>Angular Drum Machine</h1>
+      </header>
 
-    <div id="controls">
-      <button id="play" class="btn btn-success" ng-click="playLoop()">Play</button>
-      <button id="pause" class="btn btn-warning" ng-click="stopLoop()">Stop</button>
-      <button id="reset" class="btn btn-danger" ng-click="resetLoop()">Reset</button>
+      <div id="controls">
+        <button id="play" class="button small success radius" ng-click="playLoop()">Play</button>
+        <button id="pause" class="button small alert radius" ng-click="stopLoop()">Stop</button>
+        <button id="reset" class="button small radius" ng-click="resetLoop()">Reset</button>
+      </div>
+      <div id="readout">
+        <span id="time-signature">{{machine.timeSignature}}/4</span>
+        <span id="tempo">{{machine.tempo}} bpm</span>
+        <span id="kit">Kit: Default</span>
+      </div>
+
+      <ul id="drum-grid">
+        <li>
+          <ul>
+            <li class='instrument-name'></li>
+            <li class='beat-name' data-ng-repeat="i in [] | range:machine.gridLength">
+              {{$index + 1}}
+            </li>
+          </ul>
+        </li>
+        <li ng-repeat="row in machine.rows">
+          <ul class="instrument">
+            <li class='instrument-name'>
+              {{row.instrument.name}}
+            </li>
+            <li data-ng-repeat="beat in row.beats track by $index">
+              <button class="btn" ng-class="{'btn-on':beat.active}" 
+                ng-click="beat.toggle()">
+                <div></div>
+              </button>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <footer>
+        Developed by <a href="http://www.dojosto.com">Doug Johnston</a> using <a href="http://angularjs.org/">AngularJS</a>.<br>Drum loops provided by
+        <a href="http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/65">Music Radar</a>.
+      </footer>
     </div>
-    <div id="readout">
-      <span id="time-signature">{{machine.timeSignature}}/4</span>
-      <span id="tempo">{{machine.tempo}} bpm</span>
-      <span id="kit">Kit: Default</span>
-    </div>
-
-    <ul id="drum-grid">
-      <li>
-        <ul>
-          <li class='instrument-name'></li>
-          <li class='beat-name' data-ng-repeat="i in [] | range:machine.gridLength">
-            {{$index + 1}}
-          </li>
-        </ul>
-      </li>
-      <li ng-repeat="row in machine.rows">
-        <ul class="instrument">
-          <li class='instrument-name'>
-            {{row.instrument.name}}
-          </li>
-          <li data-ng-repeat="beat in row.beats track by $index">
-            <button class="btn" ng-class="{'btn-on':beat.active}" 
-              ng-click="beat.toggle()">
-              <div></div>
-            </button>
-          </li>
-        </ul>
-      </li>
-    </ul>
-
-    <footer>
-      Developed by <a href="http://www.dojosto.com">Doug Johnston</a> using <a href="http://angularjs.org/">AngularJS</a>.<br>Drum loops provided by
-      <a href="http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/65">Music Radar</a>.
-    </footer>
   </div>
 
   <script src="/assets/bower_components/angular/angular.min.js"></script>

@@ -16,8 +16,9 @@ a {
   color: #2BB2DD;
 }
 
-ul {
+ul, ul li ul {
   padding: 0;
+  margin-left: 0;
 }
 
 #container {
@@ -27,6 +28,12 @@ ul {
 
 #controls {
   display: inline-block;
+
+  button {
+    padding: 0.8rem;
+    font-family: 'Ubuntu Mono', Arial, sans-serif;
+    font-size: 1rem;
+  }
 }
 
 #readout {
