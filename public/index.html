@@ -50,10 +50,10 @@
         <li ng-repeat="row in machine.rows">
           <ul class="instrument">
             <li class='instrument-name'>
-              {{row.instrument.name}}
+              {{row.instrument.getName()}}
             </li>
             <li data-ng-repeat="beat in row.beats track by $index">
-              <button class="btn" ng-class="{'btn-on':beat.active}" 
+              <button class="btn" ng-class="{'btn-on':beat.isActive()}" 
                 ng-click="beat.toggle()">
                 <div></div>
               </button>

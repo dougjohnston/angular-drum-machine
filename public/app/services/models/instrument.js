@@ -1,23 +1,25 @@
 'use strict';
 
-//var Instrument = function(inst) {
-  //var self = this;
+var Instrument = function(player, inst) {
+  var audioPlayer = player;
+  var name = inst.name;
+  
+  function getName() {
+    return name;
+  }
 
-  //var sound = new Howl({ urls: ["assets/audio/" + inst.file]});
-  //self.name = inst.name;
+  function play() {
+    try {
+      audioPlayer.play();
+      return true;
+    } catch(e) {
+      console.log("Unable to play sound", e);
+      return false;
+    }
+  };
 
-  //self.play = function() {
-    //sound.play();
-  //}
-
-  //return self;
-//};
-
-function Instrument(inst) {
-  this.sound = new Howl({ urls: ["assets/audio/" + inst.file]});
-  this.name = inst.name;
-}
-
-Instrument.prototype.play = function() {
-  this.sound.play();
-}
+  return {
+    getName: getName,
+    play: play
+  }
+};

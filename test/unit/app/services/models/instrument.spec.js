@@ -5,29 +5,25 @@ describe('Instrument', function() {
 
   beforeEach(function() {
     var inst = { 'file': 'test.mp3', 'name': 'Fat Kick' };
-    spyOn(window, 'Howl');
+    var howler = { play: function() {}, urls: [] };
+    //spyOn(howler, 'play');
 
-    instrument = new Instrument(inst);
+    instrument = new Instrument(howler, inst);
   });
 
-  //it('should be defined', function() {
-    //expect(instrument).toBeDefined();
-  //});
+  it('should be defined', function() {
+    expect(instrument).toBeDefined();
+  });
 
-  //it('should create a new Howl object', function() {
-    //var params = { urls: ["assets/audio/test.mp3"] };
-    //expect(window.Howl).toHaveBeenCalledWith(params);
-    //expect(instrument.sound).toBeDefined();
-  //});
+  describe('getName()', function() {
+    it('should return the name', function() {
+      expect(instrument.getName()).toEqual('Fat Kick');
+    });
+  });
 
-  //it('should set the name', function() {
-    //expect(instrument.name).toEqual('Fat Kick');
-  //});
-
-  //describe('play function', function() {
-    //it('should play the sound', function() {
-      //instrument.play;
-      //expect(instrument.sound.play).toHaveBeenCalled();
-    //});
-  //});
+  describe('play()', function() {
+    it('should attempt to play the sound', function() {
+      expect(instrument.play()).toBe(true);
+    });
+  });
 });

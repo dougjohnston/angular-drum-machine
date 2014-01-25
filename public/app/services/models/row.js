@@ -1,7 +1,7 @@
 'use strict';
 
 function Row(inst, initialBeats) {
-  this.instrument = new Instrument(inst);
+  this.instrument = new Instrument(new Howl({ urls: ["assets/audio/" + inst.file] }), inst);
   this.beats = [];
 
   this.muted = false;
@@ -24,7 +24,7 @@ Row.prototype.reset = function() {
 }
 
 Row.prototype.playSound = function(index) {
-  if (this.beats[index].active) {
+  if (this.beats[index].isActive()) {
     this.instrument.play();
   }
 }
