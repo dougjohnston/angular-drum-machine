@@ -11,10 +11,16 @@ app.factory('drumMachine', function($http, timerQueue) {
     tempo: 120,
     rows: [],
 
-    build: function() {
+    init: function() {
+      var item, player, instrument;
+
       $http.get('/app/services/data/instruments.json').success(function(data) {
         for(var i = 0; i < 4; i++) {
-          drumMachine.rows.push(new Row(data[0]["default"][i], drumMachine.gridLength));
+          item = data[0]["default"][i];
+          player = new Howl({ urls: ["assets/audio/" + item.file] });
+          instrument = new Instrument(player, item);
+
+          drumMachine.rows.push(new Row(player, instrument, drumMachine.gridLength));
         }
       });
     },

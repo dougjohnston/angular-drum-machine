@@ -4,7 +4,7 @@
 app.controller('DrumMachineCtrl', function($scope, drumMachine) {
 
   // Set up the machine service
-  drumMachine.build();
+  drumMachine.init();
   $scope.machine = drumMachine;
 
   // Start playback

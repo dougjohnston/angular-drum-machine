@@ -47,12 +47,12 @@
             </li>
           </ul>
         </li>
-        <li ng-repeat="row in machine.rows">
+        <li ng-repeat="row in machine.rows track by $index">
           <ul class="instrument">
             <li class='instrument-name'>
-              {{row.instrument.getName()}}
+              {{row.getInstrument().getName()}}
             </li>
-            <li data-ng-repeat="beat in row.beats track by $index">
+            <li data-ng-repeat="beat in row.getBeats()">
               <button class="btn" ng-class="{'btn-on':beat.isActive()}" 
                 ng-click="beat.toggle()">
                 <div></div>
