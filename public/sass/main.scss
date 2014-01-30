@@ -63,9 +63,7 @@ ul, ul li ul {
   list-style: none;
   ul.instrument {
     background: #575757;
-    height: 60px;
-    margin-bottom: 5px;
-    padding: 10px 0;
+    margin-bottom: 0.2rem;
     border: 1px solid #222;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
@@ -73,14 +71,17 @@ ul, ul li ul {
   }
   ul li { 
     display: inline-block; 
-    margin-right: 15px;
+    margin: 0.5rem;
     width: 50px;
     text-align: center;
+    vertical-align: middle;
     button {
       width: 50px;
       height: 35px;
+      margin: 0;
       padding: 0;
       border: 1px solid #333;
+      vertical-align: middle;
       -webkit-border-radius: 6px;
       -moz-border-radius: 6px;
       border-radius: 6px;
@@ -109,7 +110,6 @@ ul, ul li ul {
   ul li.instrument-name { 
     width: 110px;
     font-size: 16px;
-    line-height: 90%;
     text-align: right;
     span {
       font-size: 12px;
