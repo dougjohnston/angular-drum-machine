@@ -50,7 +50,8 @@
         <li ng-repeat="row in machine.rows track by $index">
           <ul class="instrument">
             <li class='instrument-name'>
-              {{row.getInstrument().getName()}}
+              {{row.getInstrument().getName()}}<br>
+              <span>{{row.getInstrument().getDescription()}}<span>
             </li>
             <li data-ng-repeat="beat in row.getBeats()">
               <button class="btn" ng-class="{'btn-on':beat.isActive()}" 

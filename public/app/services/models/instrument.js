@@ -3,9 +3,14 @@
 var Instrument = function(player, inst) {
   var audioPlayer = player;
   var name = inst.name;
+  var description = inst.description;
   
   function getName() {
     return name;
+  }
+
+  function getDescription() {
+    return description;
   }
 
   function play() {
@@ -20,6 +25,7 @@ var Instrument = function(player, inst) {
 
   return {
     getName: getName,
+    getDescription: getDescription,
     play: play
   }
 };

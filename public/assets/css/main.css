@@ -92,10 +92,11 @@ ul, ul li ul {
   #drum-grid ul li.instrument-name {
     width: 110px;
     font-size: 16px;
+    line-height: 16px;
     text-align: right; }
     #drum-grid ul li.instrument-name span {
       font-size: 12px;
-      color: #ccc; }
+      color: #bbb; }
   #drum-grid ul li.beat-name {
     font-size: 12px; }
 

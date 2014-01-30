@@ -110,10 +110,11 @@ ul, ul li ul {
   ul li.instrument-name { 
     width: 110px;
     font-size: 16px;
+    line-height: 16px;
     text-align: right;
     span {
       font-size: 12px;
-      color: #ccc;
+      color: #bbb;
     }
   }
   ul li.beat-name {

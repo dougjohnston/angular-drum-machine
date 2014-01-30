@@ -4,7 +4,7 @@ describe('Instrument', function() {
   var instrument;
 
   beforeEach(function() {
-    var inst = { 'file': 'test.mp3', 'name': 'Fat Kick' };
+    var inst = { 'file': 'test.mp3', 'name': 'Fat Kick', 'description': 'It is fat.' };
     var howler = { play: function() {}, urls: [] };
     //spyOn(howler, 'play');
 
@@ -18,6 +18,12 @@ describe('Instrument', function() {
   describe('getName()', function() {
     it('should return the name', function() {
       expect(instrument.getName()).toEqual('Fat Kick');
+    });
+  });
+
+  describe('getDescription()', function() {
+    it('should return the description', function() {
+      expect(instrument.getDescription()).toEqual('It is fat.');
     });
   });
 
