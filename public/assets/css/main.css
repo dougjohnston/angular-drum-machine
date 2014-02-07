@@ -89,6 +89,8 @@ ul, ul li ul {
         background: #2cf;
         border-bottom: 1px solid #3df;
         border-right: 1px solid #3df; }
+    #drum-grid ul li button:focus {
+      outline: 1px dashed #444; }
   #drum-grid ul li.instrument-name {
     width: 110px;
     font-size: 16px;

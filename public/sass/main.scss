@@ -106,6 +106,9 @@ ul, ul li ul {
         border-right: 1px solid #3df;
       }
     }
+    button:focus { 
+      outline: 1px dashed #444; 
+    }
   }
   ul li.instrument-name { 
     width: 110px;
