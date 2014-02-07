@@ -4,9 +4,8 @@ describe('Row', function() {
   var row;
 
   beforeEach(function() {
-    var howler = { play: function() {}, urls: [] };
     var instrument = { getName: function() { return "Crash" }, play: function() { return true; } };
-    row = new Row(howler, instrument, 8);
+    row = new Row(instrument, 8);
   });
 
   it('should be defined', function() {

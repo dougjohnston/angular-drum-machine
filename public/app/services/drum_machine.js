@@ -4,83 +4,90 @@
 app.factory('drumMachine', function($http, timerQueue) {
   var _playing = false;
   var _timers = timerQueue;
+  var timeSignature = 4;
+  var gridLength = 8;
+  var tempo = 120;
+  var rows = [];
 
-  var drumMachine = {
-    timeSignature: 4,
-    gridLength: 8,
-    tempo: 120,
-    rows: [],
+  function init() {
+    var item, player, instrument;
 
-    init: function() {
-      var item, player, instrument;
+    $http.get('/app/services/data/instruments.json').success(function(data) {
+      for(var i = 0; i < 4; i++) {
+        item = data[0]["default"][i];
+        player = new Howl({ urls: ["assets/audio/" + item.file] });
+        instrument = new Instrument(player, item);
 
-      $http.get('/app/services/data/instruments.json').success(function(data) {
-        for(var i = 0; i < 4; i++) {
-          item = data[0]["default"][i];
-          player = new Howl({ urls: ["assets/audio/" + item.file] });
-          instrument = new Instrument(player, item);
-
-          drumMachine.rows.push(new Row(player, instrument, drumMachine.gridLength));
-        }
-      });
-    },
-
-    play: function() {
-      _playing = true;
-      var x = 0, delay = 0;
-
-      // TODO: Make this infinite
-      for (var i = 0; i < 500; i++) {
-        delay = x * (drumMachine.gridLength * drumMachine.beatDelay());
-        _timers.add(drumMachine.playMeasure(), delay);
-        x++;
+        rows.push(new Row(instrument, gridLength));
       }
-    },
+    });
+  }
 
-    stop: function() {
-      _playing = false;
-      drumMachine.clearTimers();
-    },
+  function getRows() {
+    return rows;
+  }
 
-    reset: function() {
-      drumMachine.stop();
-      drumMachine.resetAllRows();
-    },
+  function play() {
+    _playing = true;
+    var x = 0, delay = 0;
 
-    playMeasure: function() {
-      return function() {
-        for (var i = 0; i < drumMachine.gridLength; i++) {
-          _timers.add(drumMachine.playBeat(i), i * drumMachine.beatDelay());
-        }
-      };
-    },
-
-    playBeat: function(index) {
-      return function() {
-        for (var i = 0; i < drumMachine.rows.length; i++) {
-          drumMachine.rows[i].playSound(index);
-        }
-      };
-    },
-
-    clearTimers: function() {
-      _timers.clear();
-    },
-
-    //addRow: function() {
-      //drumMachine.rows.push(new Row());
-    //},
-
-    resetAllRows: function() {
-      for(var i = 0; i < drumMachine.rows.length; i++) {
-        drumMachine.rows[i].reset();
-      }
-    },
-  
-    beatDelay: function() {
-      return (1000 / (drumMachine.tempo * (drumMachine.gridLength / drumMachine.timeSignature)) * 60);
+    // TODO: Make this infinite
+    for (var i = 0; i < 500; i++) {
+      delay = x * (gridLength * beatDelay());
+      _timers.add(playMeasure(), delay);
+      x++;
     }
   }
 
-  return drumMachine;
+  function stop() {
+    _playing = false;
+    clearTimers();
+  }
+
+  function reset() {
+    stop();
+    resetAllRows();
+  }
+
+  function playMeasure() {
+    return function() {
+      for (var i = 0; i < gridLength; i++) {
+        _timers.add(playBeat(i), i * beatDelay());
+      }
+    };
+  }
+
+  function playBeat(index) {
+    return function() {
+      for (var i = 0; i < rows.length; i++) {
+        rows[i].playSound(index);
+      }
+    };
+  }
+
+  function clearTimers() {
+    _timers.clear();
+  }
+
+  function resetAllRows() {
+    for(var i = 0; i < rows.length; i++) {
+      rows[i].reset();
+    }
+  }
+
+  function beatDelay() {
+    return (1000 / (tempo * (gridLength / timeSignature)) * 60);
+  }
+
+  // Return public functions
+  return {
+    init: init,
+    gridLength: gridLength,
+    timeSignature: timeSignature,
+    tempo: tempo,
+    getRows: getRows,
+    play: play,
+    stop: stop,
+    reset: reset
+  }
 });

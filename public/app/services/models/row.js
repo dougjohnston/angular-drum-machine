@@ -1,11 +1,8 @@
 'use strict';
 
-var Row = function(player, instrument, initialBeats) {
+var Row = function(instrument, initialBeats) {
   var instrument = instrument;
   var beats = [];
-
-  //var = muted = false;
-  //var = volume = 100;
 
   // Add initial beats
   addBeats(initialBeats);
@@ -37,6 +34,7 @@ var Row = function(player, instrument, initialBeats) {
     return false;
   }
 
+  // Return public functions
   return {
     getInstrument: getInstrument,
     getBeats: getBeats,

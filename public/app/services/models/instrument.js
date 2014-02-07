@@ -23,6 +23,7 @@ var Instrument = function(player, inst) {
     }
   };
 
+  // Return public functions
   return {
     getName: getName,
     getDescription: getDescription,

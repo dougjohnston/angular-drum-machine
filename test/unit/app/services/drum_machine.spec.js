@@ -1,17 +1,17 @@
-//'use strict';
+'use strict';
 
-//describe('machineModel', function() {
-  //var machine;
+describe('drumMachine', function() {
+  var machine;
 
-  //beforeEach(module('DrumMachine'));
+  beforeEach(module('AngularDrumMachine'));
 
-  //beforeEach(inject(function(_machineModel_) {
-    //machine = _machineModel_;
-  //}));
+  beforeEach(inject(function(_drumMachine_) {
+    machine = _drumMachine_;
+  }));
 
-  //it('should set up a default kit', function() {
-    //expect(machine.kit).toEqual(jasmine.any(Object));
-  //});
+  it('should have zero rows', function() {
+    expect(machine.getRows.length).toEqual(0);
+  });
 
   //it('should set up a beats array', function() {
     //expect(machine.beats).toEqual(jasmine.any(Object));
@@ -37,4 +37,4 @@
       ////expect(machine.beats).toEqual(0);
     //});
   //});
-//});
+});
