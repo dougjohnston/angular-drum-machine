@@ -2,21 +2,28 @@
 
 // Timer Queue Model
 app.factory('timerQueue', function($timeout) {
-  var _queue = [];
+  var _queue = new Array();
 
-  var timerqueue = {
-    add: function(fn, delay) {
-      _queue.push($timeout(fn, delay));
-    },
-
-    clear: function() {
-      for (var i = 0; i < _queue.length; i++) {
-        $timeout.cancel(_queue[i]);
-      }
-      _queue = [];
-    }
+  function queue() {
+    return _queue;
   }
 
-  return timerqueue;
+  function add(fn, delay) {
+    _queue.push($timeout(fn, delay));
+  }
+  
+  function clear() {
+    console.log("Clearing...");
+    for (var i = 0; i < _queue.length; i++) {
+      $timeout.cancel(_queue[i]);
+    }
+    _queue = [];
+  }
+
+  return {
+    queue: queue,
+    add: add,
+    clear: clear
+  };
 });
 
