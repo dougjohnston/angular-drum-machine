@@ -1,23 +1,25 @@
-//'use strict';
+'use strict';
 
-//describe('DrumController', function() {
-  //var scope, timeout, ctrl;
+describe('DrumMachineCtrl', function() {
+  var scope, timeout, ctrl;
 
-  //beforeEach(module('DrumMachine'));
+  beforeEach(module('AngularDrumMachine'));
 
-  //beforeEach(inject(function($rootScope, $injector, $controller) {
-    //scope = $rootScope.$new();
-    //timeout = $injector.get('$timeout');
-    //ctrl = $controller('DrumController', {$scope: scope, $timeout: timeout});
-  //}));
+  beforeEach(inject(function($rootScope, $injector, $controller) {
+    scope = $rootScope.$new();
+    timeout = $injector.get('$timeout');
+    ctrl = $controller('DrumMachineCtrl', {$scope: scope, $timeout: timeout});
+  }));
 
-  //it('should set up a machine model', function() {
-    //expect(scope.machine).toEqual(jasmine.any(Object));
-  //});
+  it('should set up a drum machine service', function() {
+    expect(scope.machine).toEqual(jasmine.any(Object));
+  });
 
-  //it('should set up an array of instruments', function() {
-    //expect(scope.instruments).toEqual(jasmine.any(Array));
-  //});
+  //describe('method playLoop', function() {
+    //it('should tell the machine to start playing', function() {
+      //expect(scope.machine).toEqual(jasmine.any(Object));
+    //});
+  //}
 
   //it('should have an empty timers array', function() {
     //expect(scope.timers.length).toBe(0);
@@ -56,4 +58,4 @@
       //expect(scope.timers.length).toEqual(0);
     //});
   //});
-//});
+});

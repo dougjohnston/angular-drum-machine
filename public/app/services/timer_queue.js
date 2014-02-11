@@ -13,7 +13,6 @@ app.factory('timerQueue', function($timeout) {
   }
   
   function clear() {
-    console.log("Clearing...");
     for (var i = 0; i < _queue.length; i++) {
       $timeout.cancel(_queue[i]);
     }

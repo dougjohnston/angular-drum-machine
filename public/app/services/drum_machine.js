@@ -28,7 +28,6 @@ app.factory('drumMachine', function($http, timerQueue) {
   }
 
   function play() {
-    _playing = true;
     var x = 0, delay = 0;
 
     // TODO: Make this infinite
@@ -37,6 +36,8 @@ app.factory('drumMachine', function($http, timerQueue) {
       _timers.add(playMeasure(), delay);
       x++;
     }
+
+    _playing = true;
   }
 
   function stop() {
