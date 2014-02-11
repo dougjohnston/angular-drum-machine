@@ -4,10 +4,10 @@
 app.factory('drumMachine', function($http, timerQueue) {
   var _playing = false;
   var _timers = timerQueue;
+  var _rows = [];
   var timeSignature = 4;
   var gridLength = 8;
   var tempo = 120;
-  var rows = [];
 
   function init() {
     var item, player, instrument;
@@ -18,13 +18,13 @@ app.factory('drumMachine', function($http, timerQueue) {
         player = new Howl({ urls: ["assets/audio/" + item.file] });
         instrument = new Instrument(player, item);
 
-        rows.push(new Row(instrument, gridLength));
+        _rows.push(new Row(instrument, gridLength));
       }
     });
   }
 
-  function getRows() {
-    return rows;
+  function rows() {
+    return _rows;
   }
 
   function play() {
@@ -41,7 +41,7 @@ app.factory('drumMachine', function($http, timerQueue) {
 
   function stop() {
     _playing = false;
-    clearTimers();
+    _timers.clear();
   }
 
   function reset() {
@@ -59,19 +59,15 @@ app.factory('drumMachine', function($http, timerQueue) {
 
   function playBeat(index) {
     return function() {
-      for (var i = 0; i < rows.length; i++) {
-        rows[i].playSound(index);
+      for (var i = 0; i < _rows.length; i++) {
+        _rows[i].playSound(index);
       }
     };
   }
 
-  function clearTimers() {
-    _timers.clear();
-  }
-
   function resetAllRows() {
-    for(var i = 0; i < rows.length; i++) {
-      rows[i].reset();
+    for(var i = 0; i < _rows.length; i++) {
+      _rows[i].reset();
     }
   }
 
@@ -85,7 +81,7 @@ app.factory('drumMachine', function($http, timerQueue) {
     gridLength: gridLength,
     timeSignature: timeSignature,
     tempo: tempo,
-    getRows: getRows,
+    rows: rows,
     play: play,
     stop: stop,
     reset: reset

@@ -10,7 +10,7 @@ describe('drumMachine', function() {
   }));
 
   it('should have zero rows', function() {
-    expect(machine.getRows.length).toEqual(0);
+    expect(machine.rows().length).toEqual(0);
   });
 
   //it('should set up a beats array', function() {
