@@ -7,19 +7,45 @@ describe('DrumMachineCtrl', function() {
 
   beforeEach(inject(function($rootScope, $injector, $controller) {
     scope = $rootScope.$new();
-    timeout = $injector.get('$timeout');
-    ctrl = $controller('DrumMachineCtrl', {$scope: scope, $timeout: timeout});
+    ctrl = $controller('DrumMachineCtrl', {$scope: scope});
   }));
 
   it('should set up a drum machine service', function() {
     expect(scope.machine).toEqual(jasmine.any(Object));
   });
 
-  //describe('method playLoop', function() {
-    //it('should tell the machine to start playing', function() {
-      //expect(scope.machine).toEqual(jasmine.any(Object));
-    //});
-  //}
+  describe('method playLoop', function() {
+    beforeEach(function() {
+      spyOn(scope.machine, 'play');
+    });
+
+    it('should tell the machine to start playing', function() {
+      scope.playLoop();
+      expect(scope.machine.play).toHaveBeenCalled();
+    });
+  });
+
+  describe('method stopLoop', function() {
+    beforeEach(function() {
+      spyOn(scope.machine, 'stop');
+    });
+
+    it('should tell the machine to stop', function() {
+      scope.stopLoop();
+      expect(scope.machine.stop).toHaveBeenCalled();
+    });
+  });
+
+  describe('method resetLoop', function() {
+    beforeEach(function() {
+      spyOn(scope.machine, 'reset');
+    });
+
+    it('should tell the machine to reset itself', function() {
+      scope.resetLoop();
+      expect(scope.machine.reset).toHaveBeenCalled();
+    });
+  });
 
   //it('should have an empty timers array', function() {
     //expect(scope.timers.length).toBe(0);
