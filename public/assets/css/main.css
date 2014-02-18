@@ -46,6 +46,9 @@ ul, ul li ul {
   #readout #counter {
     width: 80px; }
 
+#tempo {
+  display: inline-block; }
+
 #drum-grid {
   width: 90%;
   list-style: none; }

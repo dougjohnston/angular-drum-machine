@@ -9,7 +9,7 @@ app.factory('drumMachine', function($http, timerQueue) {
   var gridLength = 8;
   var tempo = 120;
 
-  function init() {
+  function init(initialTempo) {
     var item, player, instrument;
 
     $http.get('/app/services/data/instruments.json').success(function(data) {
@@ -25,6 +25,14 @@ app.factory('drumMachine', function($http, timerQueue) {
 
   function rows() {
     return _rows;
+  }
+
+  //function tempo() {
+    //return _tempo;
+  //}
+
+  function setTempo(newTempo) {
+    tempo = newTempo;
   }
 
   function play() {
@@ -81,8 +89,9 @@ app.factory('drumMachine', function($http, timerQueue) {
     init: init,
     gridLength: gridLength,
     timeSignature: timeSignature,
-    tempo: tempo,
     rows: rows,
+    tempo: tempo,
+    setTempo: setTempo,
     play: play,
     stop: stop,
     reset: reset

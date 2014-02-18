@@ -2,7 +2,6 @@
 
 // Drum Controller
 app.controller('DrumMachineCtrl', function($scope, drumMachine) {
-
   // Set up the machine service
   drumMachine.init();
   $scope.machine = drumMachine;
@@ -20,5 +19,10 @@ app.controller('DrumMachineCtrl', function($scope, drumMachine) {
   // Reset the machine to its original state
   $scope.resetLoop = function() {
     $scope.machine.reset();
+  };
+
+  // Update the tempo
+  $scope.updateTempo = function() {
+    $scope.machine.setTempo($scope.machine.tempo);
   };
 });

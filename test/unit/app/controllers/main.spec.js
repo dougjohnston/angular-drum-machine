@@ -47,6 +47,17 @@ describe('DrumMachineCtrl', function() {
     });
   });
 
+  describe('method updateTempo', function() {
+    beforeEach(function() {
+      spyOn(scope.machine, 'setTempo');
+    });
+
+    it('should tell the machine to update the tempo', function() {
+      scope.updateTempo();
+      expect(scope.machine.setTempo).toHaveBeenCalledWith(120);
+    });
+  });
+
   //it('should have an empty timers array', function() {
     //expect(scope.timers.length).toBe(0);
   //});
