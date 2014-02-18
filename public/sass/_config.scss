@@ -1,0 +1,26 @@
+$bg-main: #373737;
+$bg-darker: #222;
+$bg-lighter: #444;
+$bg-inst: #575757;
+
+$fg-main: #efeae4;
+$fg-darker: #bfbab4;
+$fg-alt: #2bb2dd;
+
+$button-bg: #777;
+$button-light: #2cf;
+$button-light-border: #3df;
+
+// Mixins
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+       -o-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin box-shadow() {
+  -webkit-box-shadow: inset 1px -2px 5px 0px rgba(50, 50, 50, 1);
+          box-shadow: inset 1px -2px 5px 0px rgba(50, 50, 50, 1);
+}

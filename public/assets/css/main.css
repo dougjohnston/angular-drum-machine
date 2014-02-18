@@ -1,24 +1,24 @@
 body {
-  padding: 10px;
+  padding: 0.7rem;
   background-color: #373737;
-  color: #EFEAE4;
+  color: #efeae4;
   font-family: 'Ubuntu Mono', Arial, sans-serif; }
 
 h1 {
-  padding: 0 3px;
-  color: #EFEAE4;
+  padding: 0 0.2rem;
+  color: #efeae4;
   font-family: 'Oleo Script Swash Caps', cursive;
-  font-size: 53px; }
+  font-size: 3.5rem; }
 
 a {
-  color: #2BB2DD; }
+  color: #2bb2dd; }
 
 ul, ul li ul {
   padding: 0;
   margin-left: 0; }
 
 #container {
-  width: 800px;
+  width: 55%;
   margin: 0 auto; }
 
 #controls {
@@ -30,16 +30,16 @@ ul, ul li ul {
 
 #readout {
   display: inline-block;
-  background: #222;
+  background: #222222;
   margin: 10px 5px;
   padding: 10px;
-  border: 1px solid #444;
+  border: 1px solid #444444;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
   font-size: 18px;
   line-height: 18px;
-  color: #2BB2DD; }
+  color: #2bb2dd; }
   #readout span {
     display: inline-block;
     margin-right: 15px; }
@@ -52,9 +52,11 @@ ul, ul li ul {
   #drum-grid ul.instrument {
     background: #575757;
     margin-bottom: 0.2rem;
-    border: 1px solid #222;
+    border: 1px solid #222222;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
     border-radius: 6px; }
   #drum-grid ul li {
     display: inline-block;
@@ -67,30 +69,32 @@ ul, ul li ul {
       height: 35px;
       margin: 0;
       padding: 0;
-      border: 1px solid #333;
+      border: 1px solid #222222;
       vertical-align: middle;
       -webkit-border-radius: 6px;
       -moz-border-radius: 6px;
+      -ms-border-radius: 6px;
+      -o-border-radius: 6px;
       border-radius: 6px;
-      background: #EFEAE4;
-      -webkit-box-shadow: inset -1px -2px 5px 0px #323232;
-      box-shadow: inset -1px -2px 5px 0px #323232; }
+      background: #efeae4;
+      -webkit-box-shadow: inset 1px -2px 5px 0px #323232;
+      box-shadow: inset 1px -2px 5px 0px #323232; }
       #drum-grid ul li button div {
         width: 30px;
         height: 4px;
         margin: 15px 9px 0;
-        background: #222;
+        background: #222222;
         border: 1px solid #555; }
     #drum-grid ul li button.btn-on {
-      background: #555;
-      -webkit-box-shadow: inset 1px -3px 5px 0px #323232;
-      box-shadow: inset 1px -3px 5px 0px #323232; }
+      background: #777777;
+      -webkit-box-shadow: inset 1px -2px 5px 0px #323232;
+      box-shadow: inset 1px -2px 5px 0px #323232; }
       #drum-grid ul li button.btn-on div {
-        background: #2cf;
-        border-bottom: 1px solid #3df;
-        border-right: 1px solid #3df; }
+        background: #22ccff;
+        border-bottom: 1px solid #33ddff;
+        border-right: 1px solid #33ddff; }
     #drum-grid ul li button:focus {
-      outline: 1px dashed #444; }
+      outline: 1px dashed #444444; }
   #drum-grid ul li.instrument-name {
     width: 110px;
     font-size: 16px;
@@ -98,10 +102,15 @@ ul, ul li ul {
     text-align: right; }
     #drum-grid ul li.instrument-name span {
       font-size: 12px;
-      color: #bbb; }
+      color: #bfbab4; }
   #drum-grid ul li.beat-name {
     font-size: 12px; }
     #drum-grid ul li.beat-name .current-beat {
-      background: #2cf; }
+      background: #575757;
+      -webkit-border-radius: 6px;
+      -moz-border-radius: 6px;
+      -ms-border-radius: 6px;
+      -o-border-radius: 6px;
+      border-radius: 6px; }
 
 /*# sourceMappingURL=main.css.map */
