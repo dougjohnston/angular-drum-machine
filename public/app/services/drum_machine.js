@@ -3,6 +3,7 @@
 // drumMachine Model
 app.factory('drumMachine', function($http, timerQueue) {
   var _playing = false;
+  var _currentBeat = 1;
   var _timers = timerQueue;
   var _rows = [];
   var timeSignature = 4;
@@ -27,12 +28,12 @@ app.factory('drumMachine', function($http, timerQueue) {
     return _rows;
   }
 
-  //function tempo() {
-    //return _tempo;
-  //}
-
   function setTempo(newTempo) {
     tempo = newTempo;
+  }
+
+  function currentBeat() {
+    return _currentBeat;
   }
 
   function play() {
@@ -60,6 +61,7 @@ app.factory('drumMachine', function($http, timerQueue) {
 
   function playMeasure() {
     return function() {
+      _currentBeat = 0;
       for (var i = 0; i < gridLength; i++) {
         _timers.add(playBeat(i), i * beatDelay());
       }
@@ -68,6 +70,7 @@ app.factory('drumMachine', function($http, timerQueue) {
 
   function playBeat(index) {
     return function() {
+      _currentBeat += 1;
       for (var i = 0; i < _rows.length; i++) {
         _rows[i].playSound(index);
       }
@@ -89,6 +92,7 @@ app.factory('drumMachine', function($http, timerQueue) {
     init: init,
     gridLength: gridLength,
     timeSignature: timeSignature,
+    currentBeat: currentBeat,
     rows: rows,
     tempo: tempo,
     setTempo: setTempo,

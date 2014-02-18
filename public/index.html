@@ -45,7 +45,7 @@
           <ul>
             <li class='instrument-name'></li>
             <li class='beat-name' data-ng-repeat="i in [] | range:machine.gridLength">
-              {{$index + 1}}
+              <div ng-class="{true: 'current-beat'}[($index + 1) === machine.currentBeat()]">{{$index + 1}}</div>
             </li>
           </ul>
         </li>

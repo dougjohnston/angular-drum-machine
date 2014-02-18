@@ -46,9 +46,6 @@ ul, ul li ul {
   #readout #counter {
     width: 80px; }
 
-#tempo {
-  display: inline-block; }
-
 #drum-grid {
   width: 90%;
   list-style: none; }
@@ -104,5 +101,7 @@ ul, ul li ul {
       color: #bbb; }
   #drum-grid ul li.beat-name {
     font-size: 12px; }
+    #drum-grid ul li.beat-name .current-beat {
+      background: #2cf; }
 
 /*# sourceMappingURL=main.css.map */

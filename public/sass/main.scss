@@ -58,10 +58,6 @@ ul, ul li ul {
   }
 }
 
-#tempo {
-  display: inline-block;
-}
-
 #drum-grid {
   width: 90%;
   list-style: none;
@@ -126,5 +122,8 @@ ul, ul li ul {
   }
   ul li.beat-name {
     font-size: 12px;
+    .current-beat {
+      background: #2cf;
+    }
   }
 }
