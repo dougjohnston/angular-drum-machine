@@ -2,7 +2,8 @@ body {
   padding: 0.7rem;
   background-color: #373737;
   color: #efeae4;
-  font-family: 'Ubuntu Mono', Arial, sans-serif; }
+  font-family: 'Ubuntu Mono', Arial, sans-serif;
+  line-height: 1.2; }
 
 h1 {
   padding: 0 0.2rem;
@@ -17,34 +18,57 @@ ul, ul li ul {
   padding: 0;
   margin-left: 0; }
 
+button:focus, input:focus {
+  outline: 1px dashed #444444; }
+
 #container {
   width: 55%;
   margin: 0 auto; }
 
 #controls {
-  display: inline-block; }
+  /*height: 2.4rem;*/
+  /*line-height: 2.4rem;*/
+  margin-bottom: 0.5rem; }
   #controls button {
-    padding: 0.8rem;
+    height: 2.4rem;
+    line-height: 2.4rem;
+    padding: 0 1rem;
+    margin: 0;
     font-family: 'Ubuntu Mono', Arial, sans-serif;
     font-size: 1rem; }
-
-#readout {
-  display: inline-block;
-  background: #222222;
-  margin: 10px 5px;
-  padding: 10px;
-  border: 1px solid #444444;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
-  font-size: 18px;
-  line-height: 18px;
-  color: #2bb2dd; }
-  #readout span {
+  #controls #readout {
     display: inline-block;
-    margin-right: 15px; }
-  #readout #counter {
-    width: 80px; }
+    height: 2.4rem;
+    line-height: 2.4rem;
+    background: #222222;
+    padding: 0 1rem;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    /*border: 1px solid $bg-lighter;*/
+    /*font-size: 1.2rem;*/
+    color: #2bb2dd; }
+    #controls #readout #tempo {
+      position: relative; }
+      #controls #readout #tempo input[type="range"] {
+        -webkit-appearance: none;
+        position: relative;
+        top: -4px;
+        background-color: #2bb2dd;
+        height: 2px; }
+      #controls #readout #tempo input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 11px;
+        height: 11px;
+        cursor: pointer;
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        -ms-border-radius: 6px;
+        -o-border-radius: 6px;
+        border-radius: 6px;
+        background-color: #2bb2dd; }
 
 #drum-grid {
   width: 90%;
@@ -93,8 +117,6 @@ ul, ul li ul {
         background: #22ccff;
         border-bottom: 1px solid #33ddff;
         border-right: 1px solid #33ddff; }
-    #drum-grid ul li button:focus {
-      outline: 1px dashed #444444; }
   #drum-grid ul li.instrument-name {
     width: 110px;
     font-size: 16px;

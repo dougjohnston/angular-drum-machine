@@ -5,6 +5,7 @@ body {
   background-color: $bg-main;
   color: $fg-main;
   font-family: 'Ubuntu Mono', Arial, sans-serif;
+  line-height: 1.2;
 }
 
 h1 {
@@ -23,40 +24,60 @@ ul, ul li ul {
   margin-left: 0;
 }
 
+button:focus, input:focus { 
+  outline: 1px dashed $bg-lighter; 
+}
+
 #container {
   width: 55%;
   margin: 0 auto;
 }
 
 #controls {
-  display: inline-block;
+  /*height: 2.4rem;*/
+  /*line-height: 2.4rem;*/
+  margin-bottom: 0.5rem;
 
   button {
-    padding: 0.8rem;
+    height: 2.4rem;
+    line-height: 2.4rem;
+    padding: 0 1rem;
+    margin: 0;
     font-family: 'Ubuntu Mono', Arial, sans-serif;
     font-size: 1rem;
   }
-}
 
-#readout {
-  display: inline-block;
-  background: $bg-darker;
-  margin: 10px 5px;
-  padding: 10px;
-  border: 1px solid $bg-lighter;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
-  font-size: 18px;
-  line-height: 18px;
-  color: $fg-alt;
-  span {
+  #readout {
     display: inline-block;
-    margin-right: 15px;
-  }
+    height: 2.4rem;
+    line-height: 2.4rem;
+    background: $bg-darker;
+    padding: 0 1rem;
+    @include border-radius(3px);
+    /*border: 1px solid $bg-lighter;*/
+    /*font-size: 1.2rem;*/
+    color: $fg-alt;
 
-  #counter {
-    width: 80px;
+    #tempo {
+      position: relative;
+
+      input[type="range"] {
+        -webkit-appearance: none;
+        position: relative;
+        top: -4px;
+        background-color: $fg-alt;
+        height: 2px;
+      }
+
+      input[type="range"]::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          width: 11px;
+          height: 11px;
+          cursor: pointer;
+          @include border-radius(6px);
+          background-color: $fg-alt;
+      }
+    }
   }
 }
 
@@ -101,9 +122,6 @@ ul, ul li ul {
         border-bottom: 1px solid $button-light-border;
         border-right: 1px solid $button-light-border;
       }
-    }
-    button:focus { 
-      outline: 1px dashed $bg-lighter; 
     }
   }
   ul li.instrument-name { 
