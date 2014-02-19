@@ -3,14 +3,15 @@
 // drumMachine Model
 app.factory('drumMachine', function($http, timerQueue) {
   var _playing = false;
-  var _currentBeat = 1;
+  var _currentBeat = 0;
+  var _delay = 100;
   var _timers = timerQueue;
   var _rows = [];
   var timeSignature = 4;
   var gridLength = 8;
   var tempo = 120;
 
-  function init(initialTempo) {
+  function init() {
     var item, player, instrument;
 
     $http.get('/app/services/data/instruments.json').success(function(data) {
@@ -22,6 +23,7 @@ app.factory('drumMachine', function($http, timerQueue) {
         _rows.push(new Row(instrument, gridLength));
       }
     });
+    _delay = beatDelay();
   }
 
   function rows() {
@@ -30,6 +32,7 @@ app.factory('drumMachine', function($http, timerQueue) {
 
   function setTempo(newTempo) {
     tempo = newTempo;
+    _delay = beatDelay();
   }
 
   function currentBeat() {
@@ -37,16 +40,8 @@ app.factory('drumMachine', function($http, timerQueue) {
   }
 
   function play() {
-    var x = 0, delay = 0;
-
-    // TODO: Make this infinite
-    for (var i = 0; i < 500; i++) {
-      delay = x * (gridLength * beatDelay());
-      _timers.add(playMeasure(), delay);
-      x++;
-    }
-
     _playing = true;
+    _timers.add(playBeat(), beatDelay());
   }
 
   function stop() {
@@ -56,24 +51,26 @@ app.factory('drumMachine', function($http, timerQueue) {
 
   function reset() {
     stop();
+    _currentBeat = 0;
     resetAllRows();
   }
 
-  function playMeasure() {
+  // Benchmark Code
+  //var lastTime = new Date().getTime();
+  function playBeat() {
     return function() {
-      _currentBeat = 0;
-      for (var i = 0; i < gridLength; i++) {
-        _timers.add(playBeat(i), i * beatDelay());
+      //var thisTime = new Date().getTime();
+      //console.log("Delay: " + _delay + " Diff: " + (thisTime - lastTime));
+      //lastTime = thisTime;
+      if (_currentBeat >= gridLength) {
+        _currentBeat = 0;
       }
-    };
-  }
 
-  function playBeat(index) {
-    return function() {
-      _currentBeat += 1;
       for (var i = 0; i < _rows.length; i++) {
-        _rows[i].playSound(index);
+        _rows[i].playSound(_currentBeat);
       }
+      _currentBeat += 1;
+      _timers.add(playBeat(), _delay);
     };
   }
 
