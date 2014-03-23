@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="/assets/bower_components/foundation/css/foundation.min.css">
   <link rel="stylesheet" href="/assets/css/main.css">
 
+  <script src="/assets/bower_components/angular/angular.min.js"></script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -34,14 +35,14 @@
         <button id="pause" class="button small alert radius" ng-click="stopLoop()">Stop</button>
         <button id="reset" class="button small radius" ng-click="resetLoop()">Reset</button>
         <div id="readout">
-          <span id="tempo">
+          <span ng-cloak id="tempo">
             <input type="range" min="60" max="180" ng-change="updateTempo()" ng-model="machine.tempo">
             {{machine.tempo}} bpm 
           </span>
         </div>
       </div>
 
-      <ul id="drum-grid">
+      <ul ng-cloak id="drum-grid">
         <li>
           <ul>
             <li class='instrument-name'></li>
@@ -73,8 +74,6 @@
     </div>
   </div>
 
-  <script src="/assets/bower_components/angular/angular.min.js"></script>
-  <!--<script src="/assets/bower_components/jquery/jquery.min.js"></script>-->
   <script src="/assets/bower_components/howler/howler.min.js"></script>
   <script src="/assets/js/application.js"></script>
   <script src="/app/app.js"></script>
