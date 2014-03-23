@@ -1,6 +1,6 @@
 {
   "name": "drum_machine",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "authors": [
     "Doug Johnston <dbjohnston@gmail.com>"
   ],
@@ -15,12 +15,12 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "1.2.11",
-    "foundation": "5.1.1",
-    "howler": "1.1.17"
+    "angular": "1.2.14",
+    "foundation": "5.2.1",
+    "howler": "1.1.18"
   },
   "devDependencies": {
-    "angular-mocks": "1.2.11",
+    "angular-mocks": "1.2.14",
     "jasmine": "2.0.0"
   }
 }
