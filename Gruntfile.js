@@ -45,6 +45,17 @@ module.exports = function(grunt) {
       }
     },
 
+    uglify: {
+      options: {
+        mangle: false
+      },
+      my_target: {
+        files: {
+          'public/assets/js/angular_drums.min.js': ['public/app/**/*.js']
+        }
+      }
+    },
+
     watch: {
       sasstocss: {
         files: ['<%= meta.srcPath %>/**/*.scss'],
@@ -63,6 +74,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-karma');
 
   // Default task.
