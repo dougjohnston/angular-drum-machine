@@ -62,6 +62,12 @@ module.exports = function(grunt) {
         tasks: ['sass']
       },
 
+      /* watch and see if our javascript files change, or new packages are installed */
+      js: {
+        files: ['public/app/**/*.js'],
+        tasks: ['uglify']
+      },
+
       karma: {
         files: ['public/app/**/*.js', 'test/**/*.js'],
         tasks: ['karma:unit:run']
@@ -73,10 +79,10 @@ module.exports = function(grunt) {
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-karma');
 
   // Default task.
-  grunt.registerTask('default', ['sass', 'karma:unit:start', 'connect', 'watch']);
+  grunt.registerTask('default', ['sass', 'uglify', 'karma:unit:start', 'connect', 'watch']);
 };
