@@ -3,12 +3,14 @@
 // Drum Controller
 app.controller('DrumMachineCtrl', function($scope, drumMachine) {
   // Set up the machine service
-  drumMachine.init();
+  drumMachine.loadInstruments();
+  drumMachine.loadSequence();
   $scope.machine = drumMachine;
 
   // Start playback
   $scope.playLoop = function() {
     $scope.machine.play();
+    $scope.fade_msg_play = true;
   };
 
   // Halt playback

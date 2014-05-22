@@ -2,21 +2,25 @@
 
 // drumMachine Model
 app.factory('drumMachine', function($http, timerQueue) {
+  // Private variables
   var _playing = false;
   var _currentBeat = 0;
   var _delay = 100;
   var _timers = timerQueue;
   var _rows = [];
+
+  // Public variables
   var timeSignature = 4;
   var gridLength = 8;
   var tempo = 120;
 
-  function init() {
+  function loadInstruments(instrumentFile) {
     var item, player, instrument;
+    var file = instrumentFile || "/app/services/data/instruments/kit-1.json";
 
-    $http.get('/app/services/data/instruments.json').success(function(data) {
+    $http.get(file).success(function(data) {
       for(var i = 0; i < 4; i++) {
-        item = data[0]["default"][i];
+        item = data.instruments[i];
         player = new Howl({ urls: ["assets/audio/" + item.file] });
         instrument = new Instrument(player, item);
 
@@ -24,6 +28,27 @@ app.factory('drumMachine', function($http, timerQueue) {
       }
     });
     _delay = beatDelay();
+  }
+
+  function loadSequence(sequenceFile) {
+    var file = sequenceFile || "/app/services/data/sequences/seq-1.json";
+
+    stop();
+
+    $http.get(file).success(function(data) {
+      console.log(data);
+      gridLength = data.gridLength;
+      tempo = data.tempo;
+      for(var i = 0; i < 4; i++) {
+        for(var j = 0; j < gridLength; j++) {
+          if (data.rows[i][j] === "1") {
+            _rows[i].getBeats()[j].activate();
+          } else {
+            _rows[i].getBeats()[j].deactivate();
+          }
+        }
+      }
+    });
   }
 
   function rows() {
@@ -86,7 +111,8 @@ app.factory('drumMachine', function($http, timerQueue) {
 
   // Return public functions
   return {
-    init: init,
+    loadInstruments: loadInstruments,
+    loadSequence: loadSequence,
     gridLength: gridLength,
     timeSignature: timeSignature,
     currentBeat: currentBeat,

@@ -1,0 +1,15 @@
+{
+  "name": "default",
+  "instruments": [
+    { "name" : "Kick",
+      "file" : "CYCdh_AcouKick-01.mp3" },
+    { "name" : "Snare",
+      "file" : "CYCdh_LudFlamA-01.mp3" },
+    { "name" : "Hi-Hat",
+      "description" : "closed",
+      "file" : "KHats Clsd-08.mp3" },
+    { "name" : "Hi-Hat",
+      "description" : "open",
+      "file" : "KHats Open-04.mp3" }
+  ]
+}

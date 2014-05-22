@@ -25,7 +25,7 @@ ul, ul li ul {
 }
 
 button:focus, input:focus { 
-  outline: 1px dashed $bg-lighter; 
+  outline: 1px dashed $bg-inst; 
 }
 
 #container {
@@ -34,8 +34,6 @@ button:focus, input:focus {
 }
 
 #controls {
-  /*height: 2.4rem;*/
-  /*line-height: 2.4rem;*/
   margin-bottom: 0.5rem;
 
   button {
@@ -45,6 +43,11 @@ button:focus, input:focus {
     margin: 0;
     font-family: 'Ubuntu Mono', Arial, sans-serif;
     font-size: 1rem;
+  }
+
+  #reset {
+    background-color: #3699b9;
+    border-color: #167999;
   }
 
   #readout {
@@ -101,31 +104,36 @@ button:focus, input:focus {
       height: 35px;
       margin: 0;
       padding: 0;
-      border: 1px solid $bg-darker;
+      border: 1px solid $bg-lighter;
       vertical-align: middle;
-      @include border-radius(6px);
-      background: $fg-main;
-      @include box-shadow();
+      @include border-radius(3px);
+      background: $button-bg-off;
+      @include box-shadow-inset();
       div {
         width: 30px;
         height: 4px;
         margin: 15px 9px 0;
-        background: $bg-darker;
-        border: 1px solid #555;
+        background: $bg-lighter;
+        border: 1px solid #888;
+        @include border-radius(2px);
       }
     }
     button.btn-on {
-      background: $button-bg;
-      @include box-shadow();
+      background: $button-bg-on;
+      border: 1px solid $bg-lighter;
+      border: 1px solid $button-light-border;
+      @include box-shadow-on();
       div {
+        @include box-shadow();
         background: $button-light;
-        border-bottom: 1px solid $button-light-border;
-        border-right: 1px solid $button-light-border;
+        border: 1px solid $button-light-border;
+        /*border-bottom: 1px solid $button-light-border;*/
+        /*border-right: 1px solid $button-light-border;*/
       }
     }
   }
   ul li.instrument-name { 
-    width: 110px;
+    width: 90px;
     font-size: 16px;
     line-height: 16px;
     text-align: right;
@@ -141,4 +149,18 @@ button:focus, input:focus {
       @include border-radius(6px);
     }
   }
+}
+
+/* Messages */
+.msg-play {
+  position: absolute;
+  top: 100px;
+  left: -185px;
+  background: transparent url(../images/ready-to-groove.png) no-repeat;
+  width: 183px;
+  height: 134px;
+}
+
+.faded {
+  opacity: 0.2;
 }

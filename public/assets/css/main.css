@@ -12,22 +12,20 @@ h1 {
   font-size: 3.5rem; }
 
 a {
-  color: #2bb2dd; }
+  color: #00bbdd; }
 
 ul, ul li ul {
   padding: 0;
   margin-left: 0; }
 
 button:focus, input:focus {
-  outline: 1px dashed #444444; }
+  outline: 1px dashed #575757; }
 
 #container {
   width: 55%;
   margin: 0 auto; }
 
 #controls {
-  /*height: 2.4rem;*/
-  /*line-height: 2.4rem;*/
   margin-bottom: 0.5rem; }
   #controls button {
     height: 2.4rem;
@@ -36,6 +34,9 @@ button:focus, input:focus {
     margin: 0;
     font-family: 'Ubuntu Mono', Arial, sans-serif;
     font-size: 1rem; }
+  #controls #reset {
+    background-color: #3699b9;
+    border-color: #167999; }
   #controls #readout {
     display: inline-block;
     height: 2.4rem;
@@ -49,14 +50,14 @@ button:focus, input:focus {
     border-radius: 3px;
     /*border: 1px solid $bg-lighter;*/
     /*font-size: 1.2rem;*/
-    color: #2bb2dd; }
+    color: #00bbdd; }
     #controls #readout #tempo {
       position: relative; }
       #controls #readout #tempo input[type="range"] {
         -webkit-appearance: none;
         position: relative;
         top: -4px;
-        background-color: #2bb2dd;
+        background-color: #00bbdd;
         height: 2px; }
       #controls #readout #tempo input[type="range"]::-webkit-slider-thumb {
         -webkit-appearance: none;
@@ -68,7 +69,7 @@ button:focus, input:focus {
         -ms-border-radius: 6px;
         -o-border-radius: 6px;
         border-radius: 6px;
-        background-color: #2bb2dd; }
+        background-color: #00bbdd; }
 
 #drum-grid {
   width: 90%;
@@ -93,32 +94,42 @@ button:focus, input:focus {
       height: 35px;
       margin: 0;
       padding: 0;
-      border: 1px solid #222222;
+      border: 1px solid #444444;
       vertical-align: middle;
-      -webkit-border-radius: 6px;
-      -moz-border-radius: 6px;
-      -ms-border-radius: 6px;
-      -o-border-radius: 6px;
-      border-radius: 6px;
-      background: #efeae4;
-      -webkit-box-shadow: inset 1px -2px 5px 0px #323232;
-      box-shadow: inset 1px -2px 5px 0px #323232; }
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      -ms-border-radius: 3px;
+      -o-border-radius: 3px;
+      border-radius: 3px;
+      background: #777777;
+      -webkit-box-shadow: inset 2px -1px 0px 0px rgba(50, 50, 50, 0.4);
+      box-shadow: inset 2px -1px 0px 0px rgba(50, 50, 50, 0.4); }
       #drum-grid ul li button div {
         width: 30px;
         height: 4px;
         margin: 15px 9px 0;
-        background: #222222;
-        border: 1px solid #555; }
+        background: #444444;
+        border: 1px solid #888;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        -ms-border-radius: 2px;
+        -o-border-radius: 2px;
+        border-radius: 2px; }
     #drum-grid ul li button.btn-on {
-      background: #777777;
-      -webkit-box-shadow: inset 1px -2px 5px 0px #323232;
-      box-shadow: inset 1px -2px 5px 0px #323232; }
+      background: #95dff7;
+      border: 1px solid #444444;
+      border: 1px solid #3699b9;
+      -webkit-box-shadow: 0px 0px 6px 0px rgba(30, 120, 150, 0.7);
+      box-shadow: 0px 0px 6px 0px rgba(30, 120, 150, 0.7); }
       #drum-grid ul li button.btn-on div {
-        background: #22ccff;
-        border-bottom: 1px solid #33ddff;
-        border-right: 1px solid #33ddff; }
+        -webkit-box-shadow: 0px 0px 5px #33ddff;
+        box-shadow: 0px 0px 5px #33ddff;
+        background: #24caff;
+        border: 1px solid #3699b9;
+        /*border-bottom: 1px solid $button-light-border;*/
+        /*border-right: 1px solid $button-light-border;*/ }
   #drum-grid ul li.instrument-name {
-    width: 110px;
+    width: 90px;
     font-size: 16px;
     line-height: 16px;
     text-align: right; }
@@ -134,5 +145,17 @@ button:focus, input:focus {
       -ms-border-radius: 6px;
       -o-border-radius: 6px;
       border-radius: 6px; }
+
+/* Messages */
+.msg-play {
+  position: absolute;
+  top: 100px;
+  left: -185px;
+  background: transparent url(../images/ready-to-groove.png) no-repeat;
+  width: 183px;
+  height: 134px; }
+
+.faded {
+  opacity: 0.2; }
 
 /*# sourceMappingURL=main.css.map */
