@@ -1,3 +1,4 @@
+// Custom Colors
 $bg-main: #373737;
 $bg-darker: #222;
 $bg-lighter: #444;
@@ -5,7 +6,7 @@ $bg-inst: #575757;
 
 $fg-main: #efeae4;
 $fg-darker: #bfbab4;
-$fg-alt: #0bd;
+$fg-alt: #3699b9;
 
 $button-bg-off: #777;
 $button-bg-on: #eca599;
@@ -18,6 +19,7 @@ $button-bg-on: #95dff7;
 $button-bg-shadow: #3df;
 $button-light: #24caff;
 $button-light-border: #3699b9;
+
 // Mixins
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;

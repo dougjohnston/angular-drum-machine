@@ -16,8 +16,8 @@
   ],
   "dependencies": {
     "angular": "1.2.14",
-    "foundation": "5.2.1",
-    "howler": "1.1.18"
+    "foundation": "5.2.2",
+    "howler": "1.1.20"
   },
   "devDependencies": {
     "angular-mocks": "1.2.14",
