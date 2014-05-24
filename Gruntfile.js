@@ -47,11 +47,12 @@ module.exports = function(grunt) {
 
     uglify: {
       options: {
-        mangle: false
+        mangle: false,
+        sourceMap: true
       },
       my_target: {
         files: {
-          'public/assets/js/angular_drums.min.js': ['public/app/**/*.js']
+          'public/assets/js/angular_drums.min.js': ['public/assets/bower_components/howler/howler.min.js', 'public/app/**/*.js']
         }
       }
     },
