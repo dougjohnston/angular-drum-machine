@@ -9,7 +9,8 @@ module.exports = function(grunt) {
     meta: {
         basePath: './',
         srcPath: './public/sass/',
-        deployPath: './public/assets/css/'
+        deployPath: './public/assets/css/',
+        bowerPath: './public/assets/bower_components/'
     },
 
     banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
@@ -37,7 +38,9 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         options: {
-          sourcemap: true
+          sourcemap: true,
+          style: 'compressed',
+          loadPath: '<%= meta.bowerPath %>foundation/scss/'
         },
         files: {
             '<%= meta.deployPath %>main.css': '<%= meta.srcPath %>main.scss'
