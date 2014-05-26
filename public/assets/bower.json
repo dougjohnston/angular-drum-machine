@@ -16,6 +16,7 @@
   ],
   "dependencies": {
     "angular": "1.2.14",
+    "angular-route": "1.2.14",
     "foundation": "5.2.2",
     "howler": "1.1.20"
   },

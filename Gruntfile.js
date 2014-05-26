@@ -55,7 +55,7 @@ module.exports = function(grunt) {
       },
       my_target: {
         files: {
-          'public/assets/js/angular_drums.min.js': ['public/assets/bower_components/howler/howler.min.js', 'public/app/**/*.js']
+          'public/assets/js/angular_drums.min.js': ['public/assets/bower_components/angular-route/angular-route.min.js', 'public/assets/bower_components/howler/howler.min.js', 'public/app/**/*.js']
         }
       }
     },

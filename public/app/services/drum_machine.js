@@ -1,7 +1,7 @@
 'use strict';
 
 // drumMachine Model
-app.factory('drumMachine', function($http, timerQueue) {
+app.factory('drumMachine', function($http, $q, timerQueue) {
   // Private variables
   var _playing = false;
   var _currentBeat = 0;
@@ -11,14 +11,17 @@ app.factory('drumMachine', function($http, timerQueue) {
 
   // Public variables
   var timeSignature = 4;
-  var gridLength = 8;
+  var gridLength = 16;
   var tempo = 120;
+
+  var instrumentsDeferred = $q.defer();
+  var sequenceDeferred = $q.defer();
 
   function loadInstruments(instrumentFile) {
     var item, player, instrument;
     var file = instrumentFile || "/app/services/data/instruments/kit-1.json";
 
-    $http.get(file).success(function(data) {
+    var promise = $http.get(file).success(function(data, status, headers, config) {
       for(var i = 0; i < 4; i++) {
         item = data.instruments[i];
         player = new Howl({ urls: ["assets/audio/" + item.file] });
@@ -27,18 +30,17 @@ app.factory('drumMachine', function($http, timerQueue) {
         _rows.push(new Row(instrument, gridLength));
       }
     });
-    _delay = beatDelay();
+    return promise;
   }
 
   function loadSequence(sequenceFile) {
     var file = sequenceFile || "/app/services/data/sequences/seq-1.json";
 
-    stop();
+    reset();
 
-    $http.get(file).success(function(data) {
-      console.log(data);
+    var promise = $http.get(file).success(function(data, status, headers, config) {
       gridLength = data.gridLength;
-      tempo = data.tempo;
+      setTempo(data.tempo);
       for(var i = 0; i < 4; i++) {
         for(var j = 0; j < gridLength; j++) {
           if (data.rows[i][j] === "1") {
@@ -49,6 +51,8 @@ app.factory('drumMachine', function($http, timerQueue) {
         }
       }
     });
+
+    return promise;
   }
 
   function rows() {
@@ -106,7 +110,7 @@ app.factory('drumMachine', function($http, timerQueue) {
   }
 
   function beatDelay() {
-    return (1000 / (tempo * (gridLength / timeSignature)) * 60);
+    return (1000 / (tempo * 2) * 60);
   }
 
   // Return public functions
