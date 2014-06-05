@@ -89,4 +89,5 @@ module.exports = function(grunt) {
 
   // Default task.
   grunt.registerTask('default', ['sass', 'uglify', 'karma:unit:start', 'connect', 'watch']);
+  grunt.registerTask('notest', ['sass', 'uglify', 'connect', 'watch']);
 };

@@ -43,6 +43,75 @@ button:focus, input:focus {
   outline: 1px dashed $bg-inst; 
 }
 
+/* Start Loading Animation */
+/* By Adonis K., http://codepen.io/adonisk/pen/IAzbo */
+$loader-size: 0.5em;
+
+.loading {
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  padding: $loader-size;
+  vertical-align: middle;
+  text-align: center;
+  background-color: transparent;
+  border: 5px solid transparent;
+  border-radius: 50%;
+}
+
+.loading-outer {
+  -webkit-animation: spin 1s infinite;
+     -moz-animation: spin 1s infinite;
+      -ms-animation: spin 1s infinite;
+       -o-animation: spin 1s infinite;
+          animation: spin 1s infinite;
+  border-top-color: $button-light-border;
+  border-bottom-color: $button-light-border;
+}
+
+.loading-inner {
+  -webkit-animation: spin 1s infinite;
+     -moz-animation: spin 1s infinite;
+      -ms-animation: spin 1s infinite;
+       -o-animation: spin 1s infinite;
+          animation: spin 1s infinite;
+  border-top-color: $button-light;
+  border-bottom-color: $button-light;
+}
+
+@-webkit-keyframes spin {
+  0%: {
+    -webkit-transform: rotateZ(0deg);
+    -moz-transform: rotateZ(0deg);
+    -ms-transform: rotateZ(0deg);
+    -o-transform: rotateZ(0deg); 
+    transform: rotateZ(0deg);
+  }
+  100%: {
+    -webkit-transform: rotateZ(360deg);
+    -moz-transform: rotateZ(360deg);
+    -ms-transform: rotateZ(360deg);
+    -o-transform: rotateZ(360deg); 
+    transform: rotateZ(360deg);
+  }
+}
+
+#loading-wrap {
+  box-sizing: border-box;
+  display: table-cell;
+  vertical-align: middle;
+
+  h3 {
+    display: inline-block;
+    font-size: 1.3rem;
+    font-weight: normal;
+    font-family: 'Ubuntu Mono', Arial, sans-serif;
+    color: $fg-darker;
+  }
+}
+
+/* End Loading Animation */
+
 #container {
   margin: 0 auto;
 }

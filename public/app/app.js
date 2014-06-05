@@ -1,21 +1,19 @@
 'use strict';
 
-var app = angular.module('AngularDrumMachine', ['ngRoute']);
+//var app = angular.module('AngularDrumMachine', ['ngRoute']);
+var app = angular.module('AngularDrumMachine', []);
 
-app.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/', {
-    templateUrl: 'index.html', 
-    controller: 'DrumMachineCtrl',
-    resolve: {
-      instruments: function(drumMachine) {
-        return drumMachine.loadInstruments();
-      },
-      sequence: function(drumMachine) {
-        return drumMachine.loadSequence();
-      }
-    }
-  });
-  
-  $routeProvider.otherwise({redirectTo: '/'});
+app.run(['drumMachine', '$q', '$rootScope', '$timeout', function(drumMachine, $q, $rootScope, $timeout) {
+  $rootScope.loading = true;
+
+  $q.all([drumMachine.loadInstruments(), drumMachine.loadSequence()])
+    .then(function(result) {
+      $timeout(function() {
+        $rootScope.machine = drumMachine;
+        $rootScope.tempo = drumMachine.tempo.call(this);
+        $rootScope.loading = false;
+      }, 2500);
+    }, function(reason) {
+      console.log("Failed to load JSON data.");
+    });
 }]);
-
