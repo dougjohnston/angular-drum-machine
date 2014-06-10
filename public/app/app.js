@@ -8,11 +8,9 @@ app.run(['drumMachine', '$q', '$rootScope', '$timeout', function(drumMachine, $q
 
   $q.all([drumMachine.loadInstruments(), drumMachine.loadSequence()])
     .then(function(result) {
-      $timeout(function() {
-        $rootScope.machine = drumMachine;
-        $rootScope.tempo = drumMachine.tempo.call(this);
-        $rootScope.loading = false;
-      }, 2500);
+      $rootScope.machine = drumMachine;
+      $rootScope.tempo = drumMachine.tempo.call(this);
+      $rootScope.loading = false;
     }, function(reason) {
       console.log("Failed to load JSON data.");
     });
