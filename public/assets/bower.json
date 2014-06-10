@@ -15,13 +15,13 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "1.2.14",
-    "angular-route": "1.2.14",
-    "foundation": "5.2.2",
-    "howler": "1.1.20"
+    "angular": "1.2.17",
+    "angular-route": "1.2.17",
+    "foundation": "5.2.3",
+    "howler": "1.1.21"
   },
   "devDependencies": {
-    "angular-mocks": "1.2.14",
+    "angular-mocks": "1.2.17",
     "jasmine": "2.0.0"
   }
 }

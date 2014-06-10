@@ -1,7 +1,7 @@
 'use strict';
 
 // Drum Controller
-app.controller('DrumMachineCtrl', function($scope, $q, drumMachine) {
+app.controller('DrumMachineCtrl', function($scope) {
   // Start playback
   $scope.playLoop = function() {
     $scope.machine.play();
