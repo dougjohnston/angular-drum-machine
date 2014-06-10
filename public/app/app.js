@@ -6,12 +6,11 @@ var app = angular.module('AngularDrumMachine', []);
 app.run(['drumMachine', '$q', '$rootScope', '$timeout', function(drumMachine, $q, $rootScope, $timeout) {
   $rootScope.loading = true;
 
-  $q.all([drumMachine.loadInstruments(), drumMachine.loadSequence()])
-    .then(function(result) {
+  drumMachine.loadInstruments().then(function(result) {
+    drumMachine.loadSequence().then(function(result) {
       $rootScope.machine = drumMachine;
       $rootScope.tempo = drumMachine.tempo.call(this);
       $rootScope.loading = false;
-    }, function(reason) {
-      console.log("Failed to load JSON data.");
-    });
+    })
+  });
 }]);
