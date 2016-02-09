@@ -2,17 +2,10 @@
 
 /* Import Foundation */
 @import 'normalize';
-@import
-  "foundation/components/grid",
-  /*"foundation/components/alert-boxes",*/
-  /*"foundation/components/block-grid",*/
-  /*"foundation/components/button-groups",*/
-  "foundation/components/buttons",
-  /*"foundation/components/clearing",*/
-  /*"foundation/components/inline-lists",*/
-  /*"foundation/components/range-slider",*/
-  "foundation/components/type",
-  "foundation/components/visibility";
+@import 'grid';
+@import 'buttons';
+@import "type";
+@import 'visibility';
 
 body {
   padding: 0.7rem;
@@ -39,8 +32,8 @@ ul, ul li ul {
   margin-left: 0;
 }
 
-button:focus, input:focus { 
-  outline: 1px dashed $bg-inst; 
+button:focus, input:focus {
+  outline: 1px dashed $bg-inst;
 }
 
 /* Start Loading Animation */
@@ -80,18 +73,18 @@ $loader-size: 0.5em;
 }
 
 @-webkit-keyframes spin {
-  0%: {
+  0% {
     -webkit-transform: rotateZ(0deg);
     -moz-transform: rotateZ(0deg);
     -ms-transform: rotateZ(0deg);
-    -o-transform: rotateZ(0deg); 
+    -o-transform: rotateZ(0deg);
     transform: rotateZ(0deg);
   }
-  100%: {
+  100% {
     -webkit-transform: rotateZ(360deg);
     -moz-transform: rotateZ(360deg);
     -ms-transform: rotateZ(360deg);
-    -o-transform: rotateZ(360deg); 
+    -o-transform: rotateZ(360deg);
     transform: rotateZ(360deg);
   }
 }
@@ -260,14 +253,14 @@ $loader-size: 0.5em;
 
   ul li {
     flex-grow: 1;
-    display: inline-block; 
+    display: inline-block;
     margin-right: 1.4%;
     width: 30px;
     text-align: center;
     vertical-align: middle;
   }
 
-  .instrument-name { 
+  .instrument-name {
     /*width: 6rem;*/
     flex-basis: 4rem;
     flex-shrink: 2;

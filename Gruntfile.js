@@ -38,9 +38,8 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         options: {
-          sourcemap: true,
           style: 'compressed',
-          loadPath: '<%= meta.bowerPath %>foundation/scss/'
+          loadPath: ['<%= meta.bowerPath %>foundation/scss/', '<%= meta.bowerPath %>foundation/scss/foundation/components/']
         },
         files: {
             '<%= meta.deployPath %>main.css': '<%= meta.srcPath %>main.scss'
@@ -50,8 +49,7 @@ module.exports = function(grunt) {
 
     uglify: {
       options: {
-        mangle: false,
-        sourceMap: true
+        mangle: false
       },
       my_target: {
         files: {
@@ -88,6 +86,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-karma');
 
   // Default task.
-  grunt.registerTask('default', ['sass', 'uglify', 'karma:unit:start', 'connect', 'watch']);
-  grunt.registerTask('notest', ['sass', 'uglify', 'connect', 'watch']);
+  grunt.registerTask('default', ['sass', 'uglify', 'connect', 'watch']);
+  grunt.registerTask('test', ['sass', 'uglify', 'karma:unit:start', 'connect', 'watch']);
 };
