@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en-us" ng-app="AngularDrumMachine">
 <head>
   <meta charset="utf-8" />
@@ -44,7 +44,8 @@
         <div id="readout">
           <span id="tempo">
             <input type="range" min="60" max="180" ng-change="updateTempo()" ng-model="tempo">
-            {{tempo}} bpm 
+            <input id="bpmEdit" type="text" min="60" max="180" ng-change="updateTempo()" ng-blur="CloseEdit()" ng-model="tempo" style="width:50px;display:none;">
+            <span id="bpm" ng-click="EditBPM()">{{tempo}} bpm</span>
           </span>
         </div>
       </div>
