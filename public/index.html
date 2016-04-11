@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en-us" ng-app="AngularDrumMachine">
 <head>
   <meta charset="utf-8" />
@@ -20,6 +20,18 @@
     ga('create', 'UA-322913-7', 'dojosto.com');
     ga('send', 'pageview');
   </script>
+    <script>
+        function EditBPM() {
+            var bpmEdit = document.getElementById('bpmEdit');
+            var bpm = document.getElementById('bpm');
+            bpm.style.display = 'none';
+            bpmEdit.style.display = 'inline-block';
+        }
+        function CloseEdit() {
+            bpm.style.display = 'inline-block';
+            bpmEdit.style.display = 'none';
+        }
+    </script>
 </head>
 <body ng-view>
   <a class="show-for-medium-up" href="https://github.com/dougjohnston/angular-drum-machine">
@@ -28,7 +40,7 @@
   <div id="container" class="row">
     <div class="large-12 large-centered columns" ng-controller="DrumMachineCtrl as dm">
       <header>
-        <h1>Angular Drum Machine</h1>
+          <h1>Angular Drum Machine</h1>
         <div id="loading-wrap" ng-show="loading">
           <div class="loading loading-outer">
             <div class="loading loading-inner"></div>
@@ -43,8 +55,9 @@
         <button id="reset" class="button small radius" ng-click="resetLoop()">Clear</button>
         <div id="readout">
           <span id="tempo">
-            <input type="range" min="60" max="180" ng-change="updateTempo()" ng-model="tempo">
-            {{tempo}} bpm 
+              <input type="range" min="60" max="180" ng-change="updateTempo()" ng-model="tempo">
+              <input id="bpmEdit" type="textbox" min="60" max="180" ng-change="updateTempo()" onblur="CloseEdit()" ng-model="tempo" style="width:50px;display:none;">
+              <span id="bpm" onclick="EditBPM()">{{tempo}} bpm</span>
           </span>
         </div>
       </div>

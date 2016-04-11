@@ -2,15 +2,25 @@
 
 // Drum Controller
 app.controller('DrumMachineCtrl', function($scope) {
-  // Start playback
-  $scope.playLoop = function() {
-    $scope.machine.play();
-    $scope.fade_msg_play = true;
+  //variable to prevent multiple playloops
+    $scope.lock = true;
+
+    // Start playback
+  $scope.playLoop = function () {
+      if ($scope.lock) {
+        $scope.machine.play();
+        $scope.fade_msg_play = true;
+        console.log('Playing');
+        $scope.lock = false;
+      }
+
   };
 
   // Halt playback
-  $scope.stopLoop = function() {
-    $scope.machine.stop();
+  $scope.stopLoop = function () {
+      $scope.lock = true;
+      $scope.machine.stop();
+      
   };
 
   // Reset the machine to its original state
@@ -20,6 +30,7 @@ app.controller('DrumMachineCtrl', function($scope) {
 
   // Update the tempo
   $scope.updateTempo = function() {
-    $scope.machine.setTempo($scope.tempo);
+      $scope.machine.setTempo($scope.tempo);
+      
   };
 });

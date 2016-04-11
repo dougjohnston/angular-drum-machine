@@ -10,7 +10,7 @@ app.factory('drumMachine', function($http, $q, timerQueue) {
   var _tempo = 120;
   var _timers = timerQueue;
   var _rows = [];
-
+  console.log('ICHANGEDSOMTHING');
   function loadInstruments(instrumentFile) {
     var item, player, instrument;
     var file = instrumentFile || "/app/services/data/instruments/kit-1.json";
