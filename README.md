@@ -2,7 +2,9 @@ Angular Drum Machine
 --------------------
 
 Just a little experiment with [AngularJS](https://github.com/angular/angular.js
-"AngularJS") and HTML5 Audio (via [howler.js](https://github.com/goldfire/howler.js "howler.js")). Currently using Angular 1.2. Angular 2 coming soon!
+"AngularJS") and HTML5 Audio (via [howler.js](https://github.com/goldfire/howler.js "howler.js")). Currently using Angular 1.2.
+
+At one point, there were plans to upgrade this to later versions of Angular and even to port it to React. But, as this was only ever a fun proof-of-concept project, I never found time for those upgrades. I'll still review/accept any PRs if someone wants to take a crack at it.
 
 DEMO: [http://drums.dojosto.com](http://drums.dojosto.com)
 
